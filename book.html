@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book a Session | Albin Mutholam, PT, DPT, OCS</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- Global Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* Page-specific Booking Layout */
+        .booking-intro {
+            padding-bottom: 40px;
+        }
+
+        .booking-intro h1 {
+            margin-bottom: 12px;
+        }
+
+        .booking-intro p {
+            color: var(--text-secondary);
+            font-size: 18px;
+        }
+
+        .booking-section {
+            margin-bottom: 80px;
+        }
+
+        .booking-section h2 {
+            margin-bottom: 32px;
+            font-size: 28px;
+        }
+
+        /* Session Type Selection Cards */
+        .type-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .type-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            position: relative;
+        }
+
+        .type-card:hover {
+            border-color: #444;
+        }
+
+        .type-card.selected {
+            border-color: var(--accent-maroon);
+            background: #252525;
+        }
+
+        .type-card h3 {
+            font-size: 20px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .type-card p {
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .check-icon {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            color: var(--accent-maroon);
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+
+        .type-card.selected .check-icon {
+            opacity: 1;
+        }
+
+        /* Intake Form Styling */
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 48px;
+            border-radius: 8px;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-group input, 
+        .form-group textarea {
+            background: #0a0a0a;
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 12px;
+            border-radius: 4px;
+            font-family: var(--font-body);
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.2s ease;
+        }
+
+        .form-group input:focus, 
+        .form-group textarea:focus {
+            border-color: var(--accent-maroon);
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 16px;
+            font-size: 16px;
+            margin-top: 12px;
+            border: none;
+        }
+
+        /* Calendly Placeholder */
+        .calendar-placeholder {
+            border: 1px dashed var(--border-color);
+            padding: 80px 24px;
+            text-align: center;
+            border-radius: 8px;
+            background: #0d0d0d;
+        }
+
+        .calendar-placeholder i {
+            margin-bottom: 16px;
+            opacity: 0.3;
+        }
+
+        @media (max-width: 768px) {
+            .type-grid {
+                grid-template-columns: 1fr;
+            }
+            .form-container {
+                padding: 32px 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container nav-container">
+            <a href="index.html" class="logo">Albin Mutholam, PT, DPT, OCS</a>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="services.html">Services</a>
+                <a href="writing.html">Writing</a>
+                <a href="resources.html">Resources</a>
+            </nav>
+            <a href="book.html" class="btn btn-maroon">Book Session</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="booking-intro">
+            <div class="container">
+                <h1>Book a Session</h1>
+                <p>All sessions are 30 minutes. Pricing is shared privately after booking confirmation.</p>
+            </div>
+        </section>
+
+        <!-- Session Type Selection -->
+        <section class="booking-section">
+            <div class="container">
+                <h2>1. Select Session Type</h2>
+                <div class="type-grid" id="typeGrid">
+                    <!-- Card 1 -->
+                    <div class="type-card" onclick="selectType(this, 'Physical Therapy Consultation')">
+                        <i data-lucide="check-circle-2" class="check-icon"></i>
+                        <h3>1:1 Physical Therapy</h3>
+                        <p>Complex knee rehabilitation, post-op recovery, sports performance.</p>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="type-card" onclick="selectType(this, 'Clinical Mentorship Discovery Call')">
+                        <i data-lucide="check-circle-2" class="check-icon"></i>
+                        <h3>Clinical Mentorship</h3>
+                        <p>Guidance for new grads and developing clinicians.</p>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="type-card" onclick="selectType(this, 'AI-Augmented Practice Consult')">
+                        <i data-lucide="check-circle-2" class="check-icon"></i>
+                        <h3>AI Practice Consult</h3>
+                        <p>Technology integration into clinical workflows.</p>
+                    </div>
+                    <!-- Card 4 -->
+                    <div class="type-card" onclick="selectType(this, 'Interprofessional Discussion')">
+                        <i data-lucide="check-circle-2" class="check-icon"></i>
+                        <h3>Interprofessional</h3>
+                        <p>Collaborative care conversations with physicians or other providers.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Intake Form -->
+        <section class="booking-section">
+            <div class="container">
+                <h2 style="text-align: center;">2. Tell Me About Your Needs</h2>
+                <div class="form-container">
+                    <form id="bookingForm" onsubmit="handleFormSubmit(event)">
+                        <input type="hidden" id="sessionTypeInput" name="session_type" required>
+                        
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" placeholder="Your full name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="goals">What would you like to get out of this call?</label>
+                            <textarea id="goals" name="goals" rows="4" placeholder="Describe your goals, questions, or what you're hoping to achieve..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-maroon btn-submit">Continue to Scheduling</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Calendar Placeholder -->
+        <section class="booking-section">
+            <div class="container">
+                <h2>3. Select Your Time</h2>
+                <div class="calendar-placeholder">
+                    <i data-lucide="calendar" size="48"></i>
+                    <p style="color: var(--text-secondary);">Calendar integration will appear here after the intake form is completed.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <h3>Albin Mutholam, PT, DPT, OCS</h3>
+                    <p>Board-certified orthopedic PT | Complex Hip and Knee specialist | Technology augmented practice</p>
+                </div>
+                <div class="footer-nav">
+                    <div class="footer-col">
+                        <h4>Explore</h4>
+                        <a href="now.html">Now</a>
+                        <a href="manifesto.html">Manifesto</a>
+                        <a href="#">Contact</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Social</h4>
+                        <a href="https://instagram.com/mutholamrehab">Instagram</a>
+                        <a href="https://www.linkedin.com/in/albinmutholam/">LinkedIn</a>
+                        <a href="https://substack.com/@albinmutholam">Substack</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Albin Mutholam. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Lucide Icons
+        lucide.createIcons();
+
+        // Card Selection Logic
+        function selectType(element, typeName) {
+            // Remove 'selected' from all cards
+            document.querySelectorAll('.type-card').forEach(card => {
+                card.classList.remove('selected');
+            });
+            
+            // Add 'selected' to clicked card
+            element.classList.add('selected');
+            
+            // Update hidden input
+            document.getElementById('sessionTypeInput').value = typeName;
+        }
+
+        // Form Handling
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const sessionType = document.getElementById('sessionTypeInput').value;
+            
+            if (!sessionType) {
+                alert("Please select a session type above before continuing.");
+                window.scrollTo({ top: document.getElementById('typeGrid').offsetTop - 100, behavior: 'smooth' });
+                return;
+            }
+
+            // In a real implementation, you would send form data to your backend here
+            alert(`Thank you, ${document.getElementById('name').value}! In a live environment, you would now be redirected to the ${sessionType} calendar.`);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Now | Albin Mutholam, PT, DPT, OCS</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- Global Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* Now Page Specific Layout */
+        .now-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .now-intro {
+            margin-bottom: 48px;
+        }
+
+        .now-intro h1 {
+            margin-bottom: 12px;
+        }
+
+        .last-updated {
+            display: block;
+            margin-top: 12px;
+            color: var(--text-secondary);
+            font-style: italic;
+            font-size: 14px;
+        }
+
+        .now-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 32px;
+            margin-bottom: 32px;
+        }
+
+        .now-card h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 12px;
+        }
+
+        /* Maroon Bullets */
+        .now-list {
+            list-style: none;
+        }
+
+        .now-list li {
+            position: relative;
+            padding-left: 24px;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+
+        .now-list li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 8px;
+            height: 8px;
+            background-color: var(--accent-maroon);
+            border-radius: 50%;
+        }
+
+        /* Key-Value Pair Styling */
+        .kv-pair {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .kv-key {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        /* Placeholder Styling */
+        .placeholder {
+            color: var(--text-secondary);
+        }
+
+        .now-footer-note {
+            text-align: center;
+            margin-top: 48px;
+            color: var(--text-secondary);
+            font-size: 15px;
+        }
+
+        .now-footer-note a {
+            color: var(--accent-maroon);
+            font-weight: 600;
+        }
+
+        @media (max-width: 640px) {
+            .now-card {
+                padding: 24px;
+            }
+            .kv-pair {
+                flex-direction: column;
+                gap: 4px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container nav-container">
+            <a href="index.html" class="logo">Albin Mutholam, PT, DPT, OCS</a>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="services.html">Services</a>
+                <a href="writing.html">Writing</a>
+                <a href="resources.html">Resources</a>
+            </nav>
+            <a href="book.html" class="btn btn-maroon">Book Session</a>
+        </div>
+    </header>
+
+    <main>
+        <section>
+            <div class="container now-container">
+                <!-- Intro -->
+                <div class="now-intro">
+                    <h1>Now</h1>
+                    <p>What I'm focused on right now. Inspired by Derek Sivers' /now page.</p>
+                    <span class="last-updated">Last updated: February 2026</span>
+                </div>
+
+                <!-- Section 1: Clinical Focus -->
+                <div class="now-card">
+                    <h2>Current Clinical Focus</h2>
+                    <ul class="now-list">
+                        <li>Complex knee rehabilitation post-ACL reconstruction</li>
+                        <li>Integrating AI tools into patient education materials</li>
+                        <li>Research collaboration on cartilage repair outcomes</li>
+                    </ul>
+                </div>
+
+                <!-- Section 2: Availability -->
+                <div class="now-card">
+                    <h2>Availability</h2>
+                    <div class="kv-pair">
+                        <span class="kv-key">Currently accepting new patients:</span>
+                        <span class="placeholder">Limited</span>
+                    </div>
+                    <div class="kv-pair">
+                        <span class="kv-key">Mentorship calls:</span>
+                        <span class="placeholder">Available</span>
+                    </div>
+                    <div class="kv-pair">
+                        <span class="kv-key">Next availability:</span>
+                        <span class="placeholder">Contact for scheduling</span>
+                    </div>
+                </div>
+
+                <!-- Section 3: Learning -->
+                <div class="now-card">
+                    <h2>What I'm Learning</h2>
+                    <ul class="now-list">
+                        <li class="placeholder">Advanced prompting techniques for clinical AI applications</li>
+                        <li class="placeholder">Latest research on blood flow restriction training</li>
+                        <li class="placeholder">Systems thinking frameworks</li>
+                    </ul>
+                </div>
+
+                <!-- Section 4: Reading/Listening -->
+                <div class="now-card">
+                    <h2>Reading & Listening</h2>
+                    <div class="kv-pair">
+                        <span class="kv-key">Currently reading:</span>
+                        <span class="placeholder">Deep Work by Cal Newport</span>
+                    </div>
+                    <div class="kv-pair">
+                        <span class="kv-key">Podcast favorite:</span>
+                        <span class="placeholder">The Drive with Peter Attia</span>
+                    </div>
+                    <div class="kv-pair">
+                        <span class="kv-key">Recent article:</span>
+                        <span class="placeholder">Journal of Orthopaedic & Sports Physical Therapy (JOSPT) - Recent ACL Guidelines</span>
+                    </div>
+                </div>
+
+                <!-- Section 5: Projects -->
+                <div class="now-card">
+                    <h2>Current Projects</h2>
+                    <ul class="now-list">
+                        <li class="placeholder">Building AI-augmented documentation system</li>
+                        <li class="placeholder">Developing mentorship curriculum for new grads</li>
+                        <li class="placeholder">Writing series on complex knee rehabilitation</li>
+                    </ul>
+                </div>
+
+                <!-- Footer Note -->
+                <div class="now-footer-note">
+                    <p>This page is updated regularly. Want to work together? <a href="book.html">Book a session.</a></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <h3>Albin Mutholam, PT, DPT, OCS</h3>
+                    <p>Board-certified orthopedic PT | Complex Hip and Knee specialist | Technology augmented practice</p>
+                </div>
+                <div class="footer-nav">
+                    <div class="footer-col">
+                        <h4>Explore</h4>
+                        <a href="now.html">Now</a>
+                        <a href="#">Manifesto</a>
+                        <a href="contact.html">Contact</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Social</h4>
+                        <a href="https://instagram.com/mutholamrehab">Instagram</a>
+                        <a href="https://www.linkedin.com/in/albinmutholam/">LinkedIn</a>
+                        <a href="https://substack.com/@albinmutholam">Substack</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Albin Mutholam. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

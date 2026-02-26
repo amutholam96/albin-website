@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources | Albin Mutholam, PT, DPT, OCS</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- Global Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* Page-specific overrides and unique components */
+        .resources-intro {
+            padding-bottom: 40px;
+        }
+
+        .resources-intro h1 {
+            margin-bottom: 16px;
+        }
+
+        .resources-intro p {
+            color: var(--text-secondary);
+            font-size: 20px;
+            max-width: 700px;
+        }
+
+        .resource-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 320px;
+        }
+
+        .resource-card h3 {
+            margin-bottom: 16px;
+        }
+
+        .resource-card p {
+            color: var(--text-secondary);
+            font-size: 16px;
+            margin-bottom: 32px;
+            flex-grow: 1;
+        }
+
+        /* Coming Soon Button Styling */
+        .btn-disabled {
+            background-color: #2a2a2a;
+            color: #a3a3a3;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 15px;
+            display: inline-block;
+            text-align: center;
+            cursor: not-allowed;
+            border: none;
+            width: fit-content;
+        }
+
+        /* Note Section */
+        .status-note {
+            margin-top: 60px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 32px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .status-note p {
+            color: var(--text-secondary);
+            font-size: 16px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Active Nav State */
+        .nav-links a.active {
+            color: var(--accent-maroon);
+            font-weight: 600;
+        }
+
+        @media (max-width: 1024px) {
+            .grid-3 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .grid-3 {
+                grid-template-columns: 1fr;
+            }
+            .resources-intro h1 {
+                font-size: 38px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container nav-container">
+            <a href="index.html" class="logo">Albin Mutholam, PT, DPT, OCS</a>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="services.html">Services</a>
+                <a href="writing.html">Writing</a>
+                <a href="resources.html" class="active">Resources</a>
+            </nav>
+            <a href="book.html" class="btn btn-maroon">Book Session</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Intro Section -->
+        <section class="resources-intro">
+            <div class="container">
+                <h1>Resources</h1>
+                <p>Tools, frameworks, and protocols I use in clinical practice and mentorship.</p>
+            </div>
+        </section>
+
+        <!-- Resources Grid -->
+        <section class="resources-grid-section">
+            <div class="container">
+                <div class="grid-3">
+                    <!-- Card 1 -->
+                    <div class="card resource-card">
+                        <div>
+                            <h3>Rehab Progression Templates</h3>
+                            <p>Evidence-based protocols for post-operative knee rehabilitation, ACL reconstruction progressions, and return-to-sport frameworks.</p>
+                        </div>
+                        <span class="btn-disabled">Coming Soon</span>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="card resource-card">
+                        <div>
+                            <h3>AI Prompts for Clinical Practice</h3>
+                            <p>Prompt templates for clinical documentation, patient education materials, and differential diagnosis support using AI tools.</p>
+                        </div>
+                        <span class="btn-disabled">Coming Soon</span>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="card resource-card">
+                        <div>
+                            <h3>Mentorship & Clinical Reasoning</h3>
+                            <p>Structured frameworks for developing clinical reasoning, mentoring new grads, and building systematic approaches to complex cases.</p>
+                        </div>
+                        <span class="btn-disabled">Coming Soon</span>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="card resource-card">
+                        <div>
+                            <h3>Recommended Reading</h3>
+                            <p>Books, articles, and papers that have shaped my approach to rehabilitation, mentorship, and integrating technology into practice.</p>
+                        </div>
+                        <span class="btn-disabled">Coming Soon</span>
+                    </div>
+                </div>
+
+                <!-- Status Note -->
+                <div class="status-note">
+                    <p>Resources are being developed and will be added here as they become available. Check back soon or follow along on Substack for updates.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <h3>Albin Mutholam, PT, DPT, OCS</h3>
+                    <p>Board-certified orthopedic PT | Complex Hip and Knee specialist | Technology augmented practice</p>
+                </div>
+                <div class="footer-nav">
+                    <div class="footer-col">
+                        <h4>Explore</h4>
+                        <a href="#">Now</a>
+                        <a href="#">Manifesto</a>
+                        <a href="contact.html">Contact</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Social</h4>
+                        <a href="https://instagram.com/mutholamrehab">Instagram</a>
+                        <a href="https://www.linkedin.com/in/albinmutholam/">LinkedIn</a>
+                        <a href="https://substack.com/@albinmutholam">Substack</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Albin Mutholam. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

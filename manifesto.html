@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manifesto | Albin Mutholam, PT, DPT, OCS</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- Global Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* Manifesto Page Specific Layout */
+        .manifesto-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding-bottom: 120px;
+        }
+
+        .manifesto-intro {
+            margin-bottom: 80px;
+        }
+
+        .manifesto-intro h1 {
+            margin-bottom: 16px;
+        }
+
+        .manifesto-intro p {
+            font-size: 24px;
+            color: var(--text-secondary);
+            font-family: var(--font-headings);
+        }
+
+        .manifesto-section {
+            margin-bottom: 80px;
+        }
+
+        .manifesto-section h2 {
+            margin-top: 40px;
+            margin-bottom: 24px;
+            font-size: 32px;
+            color: var(--text-primary);
+        }
+
+        .manifesto-section p {
+            margin-bottom: 24px;
+            font-size: 18px;
+            line-height: 1.7;
+            color: var(--text-primary);
+        }
+
+        /* Maroon Bullets */
+        .manifesto-list {
+            list-style: none;
+            margin-bottom: 24px;
+        }
+
+        .manifesto-list li {
+            position: relative;
+            padding-left: 32px;
+            margin-bottom: 16px;
+            color: var(--text-secondary);
+            font-size: 18px;
+        }
+
+        .manifesto-list li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 8px;
+            height: 8px;
+            background-color: var(--accent-maroon);
+            border-radius: 50%;
+        }
+
+        .closing-section {
+            margin-top: 100px;
+            padding-top: 60px;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+        }
+
+        .closing-section p {
+            font-style: italic;
+            font-size: 20px;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+        }
+
+        .closing-section h3 {
+            margin-bottom: 24px;
+            font-family: var(--font-body);
+            font-size: 22px;
+        }
+
+        @media (max-width: 768px) {
+            .manifesto-section h2 {
+                font-size: 28px;
+            }
+            .manifesto-intro p {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container nav-container">
+            <a href="index.html" class="logo">Albin Mutholam, PT, DPT, OCS</a>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="services.html">Services</a>
+                <a href="writing.html">Writing</a>
+                <a href="resources.html">Resources</a>
+            </nav>
+            <a href="book.html" class="btn btn-maroon">Book Session</a>
+        </div>
+    </header>
+
+    <main>
+        <section>
+            <div class="container manifesto-container">
+                <!-- Intro -->
+                <div class="manifesto-intro">
+                    <h1>Manifesto</h1>
+                    <p>Why I practice the way I do.</p>
+                </div>
+
+                <!-- Section 1: AI -->
+                <article class="manifesto-section">
+                    <h2>Why AI Matters in Clinical Practice</h2>
+                    <p>"AI won't replace physical therapists—but physical therapists who use AI will replace those who don't."</p>
+                    <p>I believe in using technology to:</p>
+                    <ul class="manifesto-list">
+                        <li>Reduce administrative burden (documentation, scheduling)</li>
+                        <li>Enhance patient education (personalized explanations, visual aids)</li>
+                        <li>Improve clinical reasoning (differential diagnosis support, literature synthesis)</li>
+                    </ul>
+                    <p>The human element—assessment, touch, empathy, clinical judgment—remains irreplaceable.</p>
+                </article>
+
+                <!-- Section 2: Mentorship -->
+                <article class="manifesto-section">
+                    <h2>On Mentoring the Next Generation</h2>
+                    <p>New grads enter the field with knowledge but often lack systems. I focus on:</p>
+                    <ul class="manifesto-list">
+                        <li>Building clinical reasoning frameworks</li>
+                        <li>Developing confidence through structured mentorship</li>
+                        <li>Teaching intentionality in patient care</li>
+                    </ul>
+                    <p>Growth mindset isn't optional—it's foundational.</p>
+                </article>
+
+                <!-- Section 3: Knee Care -->
+                <article class="manifesto-section">
+                    <h2>Approach to Complex Knee Rehabilitation</h2>
+                    <p>Post-operative knee rehab isn't linear. It requires:</p>
+                    <ul class="manifesto-list">
+                        <li>Nuanced understanding of tissue healing</li>
+                        <li>Individualized progression based on patient response</li>
+                        <li>Integration of strength, movement quality, and psychological readiness</li>
+                    </ul>
+                    <p>Every athlete is different. Every recovery is different.</p>
+                </article>
+
+                <!-- Section 4: Intentionality -->
+                <article class="manifesto-section">
+                    <h2>Intentional Practice</h2>
+                    <p>Every session should have purpose. Every exercise should have rationale.</p>
+                    <p>I design treatment plans that:</p>
+                    <ul class="manifesto-list">
+                        <li>Align with patient goals (not generic protocols)</li>
+                        <li>Integrate seamlessly into daily life</li>
+                        <li>Build long-term resilience beyond initial recovery</li>
+                    </ul>
+                </article>
+
+                <!-- Closing -->
+                <div class="closing-section">
+                    <p>This philosophy guides every patient interaction, every mentorship session, and every clinical decision I make.</p>
+                    <h3>Ready to work together?</h3>
+                    <a href="book.html" class="btn btn-maroon">Book a Session</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <h3>Albin Mutholam, PT, DPT, OCS</h3>
+                    <p>Board-certified orthopedic PT | Complex Hip and Knee specialist | Technology augmented practice</p>
+                </div>
+                <div class="footer-nav">
+                    <div class="footer-col">
+                        <h4>Explore</h4>
+                        <a href="now.html">Now</a>
+                        <a href="manifesto.html">Manifesto</a>
+                        <a href="contact.html">Contact</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Social</h4>
+                        <a href="https://instagram.com/mutholamrehab">Instagram</a>
+                        <a href="https://www.linkedin.com/in/albinmutholam/">LinkedIn</a>
+                        <a href="https://substack.com/@albinmutholam">Substack</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Albin Mutholam. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

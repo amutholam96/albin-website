@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | Albin Mutholam, PT, DPT, OCS</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* Page-specific layouts not in global style.css */
+        .about-hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .hero-image-container {
+            position: sticky;
+            top: 120px;
+        }
+
+        .bio-text p {
+            margin-bottom: 24px;
+            color: var(--text-secondary);
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        /* Timeline Styles */
+        .timeline {
+            position: relative;
+            padding-left: 32px;
+            margin-top: 40px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--accent-maroon);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 24px;
+            padding-bottom: 8px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -37px;
+            top: 10px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--accent-maroon);
+            border: 3px solid var(--bg-color);
+        }
+
+        .timeline-text {
+            font-weight: 600;
+            font-size: 18px;
+            color: var(--text-primary);
+        }
+
+        .beyond-section {
+            margin-top: 80px;
+            padding: 40px;
+            background: var(--card-bg);
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .beyond-list {
+            margin-top: 20px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .beyond-list li {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--text-secondary);
+        }
+
+        .beyond-list li::before {
+            content: "•";
+            color: var(--accent-maroon);
+            font-weight: bold;
+        }
+
+        /* Active Nav State */
+        .nav-links a.active {
+            color: var(--accent-maroon);
+            font-weight: 600;
+        }
+
+        @media (max-width: 1024px) {
+            .about-hero-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .hero-image-container {
+                position: static;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .values-grid, .beyond-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container nav-container">
+            <a href="index.html" class="logo">Albin Mutholam, PT, DPT, OCS</a>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html" class="active">About</a>
+                <a href="services.html">Services</a>
+                <a href="writing.html">Writing</a>
+                <a href="resources.html">Resources</a>
+            </nav>
+            <a href="book.html" class="btn btn-maroon">Book Session</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- About Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="about-hero-grid">
+                    <div class="hero-image-container">
+                        <img src="headshot-placeholder.jpg" alt="Albin Mutholam, board-certified orthopedic physical therapist" style="width: 100%; max-width: 400px; border-radius: 8px; filter: grayscale(20%);">
+                    </div>
+                    <div class="bio-text">
+                        <h1>About</h1>
+                        <p>Hello! I'm a residency-trained physical therapist and Board Certified Orthopedic Clinical Specialist based in Chicago. My treatment philosophy centers around a holistic approach that empowers patients to achieve their rehabilitation goals and embrace an active lifestyle beyond recovery.</p>
+                        
+                        <p>I believe rehabilitation should integrate seamlessly into your life, allowing you to maintain normal routines while we work together. My passion for strength and conditioning enriches the care I provide to athletes and active individuals motivated to push their limits.</p>
+
+                        <p>With extensive experience in lower extremity rehabilitation, I help patients regain strength and functionality. I currently serve as Coordinator for the Sports and Orthopedic Physical Therapy residency programs, Director of the Complex Knee Special Interest Program, and clinical researcher collaborating with Drs. Yanke and Chahla. I'm also a dedicated clinical instructor and advanced mentor, committed to nurturing the next generation of physical therapists.</p>
+
+                        <p>Outside the clinic, I stay active at the gym, explore Chicago's vibrant food and coffee scene, discover new music, and dive into good books.</p>
+
+                        <p>Whether you're looking to regain your strength or seeking guidance in your career as a physical therapist, I'm here to support you every step of the way.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Values Section -->
+        <section class="values-section">
+            <div class="container">
+                <h2 class="section-heading">My Values</h2>
+                <div class="values-grid">
+                    <div class="card">
+                        <h3>Relentless Drive</h3>
+                        <p class="subtext">My relentless drive fuels my commitment to excellence, empowering patients to overcome challenges and achieve their goals. I continuously seek new knowledge and innovative techniques to enhance both patient care and my professional growth.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Growth Mindset</h3>
+                        <p class="subtext">I embrace a growth mindset, viewing challenges as opportunities for learning and improvement. I encourage patients and mentees to develop resilience and adaptability, helping them realize their full potential.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Intentionality</h3>
+                        <p class="subtext">Intentionality guides my practice, ensuring every interaction is purpose-driven. By aligning care with each patient's unique goals, I create a supportive environment for thriving and skill development.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Nuance</h3>
+                        <p class="subtext">Understanding nuance is vital in my approach. I recognize each patient's uniqueness and tailor treatment plans to their specific needs, fostering deeper connections and better outcomes.</p>
+                    </div>
+                    <div class="card" style="grid-column: span 1;">
+                        <h3>Patient Advocacy</h3>
+                        <p class="subtext">I am a passionate advocate for my patients, empowering them throughout their rehabilitation journey. I strive to ensure their voices are heard and their preferences respected, creating a collaborative and trusting environment.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Professional Journey Section -->
+        <section class="journey-section">
+            <div class="container">
+                <h2>Professional Journey</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-text">Board Certified Orthopedic Clinical Specialist (OCS)</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-text">Residency-Trained Physical Therapist</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-text">Complex Knee Special Interest Program Director</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-text">Orthopedic Residency Coordinator</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-text">Clinical Researcher (collaboration with Drs. Yanke & Chahla)</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-text">5+ Years Clinical Experience</div>
+                    </div>
+                </div>
+
+                <!-- Beyond the Clinic -->
+                <div class="beyond-section">
+                    <h3>Beyond the Clinic</h3>
+                    <p class="subtext" style="margin-top: 10px;">When I'm not working with patients or mentoring clinicians, you'll find me:</p>
+                    <ul class="beyond-list">
+                        <li>Training at the gym</li>
+                        <li>Exploring Chicago's food and coffee scene</li>
+                        <li>Discovering new music</li>
+                        <li>Reading (current favorites on my /now page)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <h3>Albin Mutholam, PT, DPT, OCS</h3>
+                    <p>Board-certified orthopedic PT | Complex Hip and Knee specialist | Technology augmented practice</p>
+                </div>
+                <div class="footer-nav">
+                    <div class="footer-col">
+                        <h4>Explore</h4>
+                        <a href="#">Now</a>
+                        <a href="#">Manifesto</a>
+                        <a href="contact.html">Contact</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Social</h4>
+                        <a href="https://instagram.com/mutholamrehab">Instagram</a>
+                        <a href="https://www.linkedin.com/in/albinmutholam/">LinkedIn</a>
+                        <a href="https://substack.com/@albinmutholam">Substack</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Albin Mutholam. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
