@@ -464,3 +464,28 @@ footer {
     grid-template-columns: 1fr;
   }
 }
+/* Hero button hover effects */
+a[href="book.html"]:hover {
+  background: #a62424 !important;
+}
+
+a[href="services.html"]:hover {
+  border-color: #8b1a1a !important;
+  color: #8b1a1a !important;
+}
+
+/* Mobile hero adjustments */
+@media (max-width: 640px) {
+  section h1 {
+    font-size: 40px !important;
+  }
+  
+  section p {
+    font-size: 18px !important;
+  }
+  
+  section div a {
+    width: 100%;
+    text-align: center;
+  }
+}
