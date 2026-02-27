@@ -34,58 +34,77 @@
     </header>
 
     <main>
-     <!-- HERO SECTION WITH IMAGE -->
 <section style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; padding: 100px 48px 80px; max-width: 1200px; margin: 0 auto;">
     
-    <!-- LEFT: Image -->
-    <div>
-        <img src="pt-action-bfr.webp" alt="Albin Mutholam working with patient at Rush University Medical Center" style="width: 100%; border-radius: 12px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);">
+    <!-- LEFT: Image with enhanced styling -->
+    <div style="position: relative;">
+        <img src="pt-action-bfr.webp" 
+             alt="Albin Mutholam working with patient" 
+             class="hero-image"
+             style="width: 100%; border-radius: 12px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);">
+        
+        <!-- Optional: Add gradient overlay -->
+        <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(135deg, rgba(220, 38, 38, 0.1), rgba(14, 165, 233, 0.1)); border-radius: 12px; pointer-events: none;"></div>
     </div>
     
     <!-- RIGHT: Content -->
     <div>
-        <h1 style="font-size: 56px; font-weight: 700; line-height: 1.1; margin-bottom: 20px; letter-spacing: -0.02em; color: #f5f5f5;">
-            Recover Stronger.<br>Return Faster.
+        <h1 style="font-size: 64px; font-weight: 700; line-height: 1.1; margin-bottom: 20px; letter-spacing: -0.02em; color: #f5f5f5;">
+            Break Through Your Plateau.<br>
+            <span style="color: #dc2626;">From Anywhere.</span>
         </h1>
         
         <p style="font-size: 20px; color: #a3a3a3; margin-bottom: 32px; line-height: 1.5;">
-            Evidence-based rehabilitation for post-surgical knees and high-level athletes in Chicago—guided by a board-certified specialist.
+            Virtual specialist for athletes stuck after knee and hip surgery—I partner with your local PT or take over after you graduate.
         </p>
         
         <div style="display: flex; gap: 16px; margin-bottom: 32px; flex-wrap: wrap;">
-            <a href="book.html" style="display: inline-block; background: #8b1a1a; color: #f5f5f5; padding: 16px 36px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 17px; transition: background 0.2s;">
-                Book Your Consultation
+            <a href="services.html" class="btn-primary" style="background: #dc2626; color: #f5f5f5; padding: 16px 36px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 17px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4); transition: all 0.2s;">
+                Start Virtual Coaching
             </a>
-            <a href="services.html" style="display: inline-block; background: transparent; border: 2px solid #2a2a2a; color: #f5f5f5; padding: 14px 36px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 17px; transition: all 0.2s;">
-                See How I Work
+            <a href="book.html" class="btn-secondary" style="background: transparent; border: 2px solid #2a2a2a; color: #f5f5f5; padding: 14px 36px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 17px; transition: all 0.2s;">
+                Book Chicago Session
             </a>
         </div>
         
-        <p style="font-size: 13px; color: #6a6a6a; text-transform: uppercase; letter-spacing: 0.12em;">
-            Board Certified Orthopedic Specialist • Residency-Trained PT • Rush University
+        <!-- Stats row -->
+        <div style="display: flex; gap: 32px; padding-top: 24px; border-top: 1px solid #2a2a2a;">
+            <div>
+                <div class="stat-number" style="font-size: 40px; font-weight: 700; color: #dc2626; line-height: 1; margin-bottom: 4px;">100+</div>
+                <div class="stat-label" style="font-size: 13px; color: #6a6a6a; text-transform: uppercase; letter-spacing: 0.1em;">Athletes Returned</div>
+            </div>
+            <div>
+                <div class="stat-number" style="font-size: 40px; font-weight: 700; color: #0ea5e9; line-height: 1; margin-bottom: 4px;">50</div>
+                <div class="stat-label" style="font-size: 13px; color: #6a6a6a; text-transform: uppercase; letter-spacing: 0.1em;">States Served</div>
+            </div>
+        </div>
+        
+        <p style="font-size: 12px; color: #6a6a6a; margin-top: 24px; text-transform: uppercase; letter-spacing: 0.12em;">
+            Complex Knee Program Director • Board Certified OCS • Clinical Researcher
         </p>
     </div>
     
 </section>
 
-<!-- Mobile: Stack image on top, text below -->
+<!-- Mobile: Stack vertically -->
 <style>
 @media (max-width: 768px) {
     section[style*="grid-template-columns: 1fr 1fr"] {
         grid-template-columns: 1fr !important;
         padding: 60px 24px 40px !important;
+        gap: 40px !important;
     }
     
     section[style*="grid-template-columns: 1fr 1fr"] h1 {
         font-size: 40px !important;
     }
     
-    section[style*="grid-template-columns: 1fr 1fr"] div:first-child {
-        order: 1;
+    section[style*="grid-template-columns: 1fr 1fr"] h1 span {
+        display: block;
     }
     
-    section[style*="grid-template-columns: 1fr 1fr"] div:last-child {
-        order: 2;
+    .stat-number {
+        font-size: 32px !important;
     }
 }
 </style>
