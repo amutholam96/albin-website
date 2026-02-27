@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Albin Mutholam, PT, DPT, OCS | Orthopedic and Sports Physical Therapist</title>
+    <title>Albin Mutholam, PT, DPT, OCS | Orthopedic Physical Therapist</title>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@600;700&family=Inter:wght@400;600&family=Space+Mono&display=swap" rel="stylesheet">
     
     <!-- Stylesheet -->
     <link rel="stylesheet" href="style.css">
@@ -18,7 +18,7 @@
 </head>
 <body>
 
-    <!-- Header (Sticky Glassmorphism) -->
+    <!-- Header -->
     <header>
         <div class="container nav-container">
             <a href="index.html" class="logo">Albin Mutholam, PT, DPT, OCS</a>
@@ -34,258 +34,119 @@
     </header>
 
     <main>
-<section style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; padding: 100px 48px 80px; max-width: 1200px; margin: 0 auto;">
-    <!-- HERO SECTION - FULL WIDTH WITH OVERLAY -->
-<section style="position: relative; height: 600px; overflow: hidden;">
-    
-    <!-- Background Image -->
-    <img src="pt-action-bfr.webp" 
-         alt="Albin Mutholam working with patient" 
-         style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; filter: brightness(0.4);">
-    
-    <!-- Gradient Overlay (darkens image for text readability) -->
-    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(220, 38, 38, 0.2));"></div>
-    
-    <!-- Content Over Image -->
-    <div style="position: relative; z-index: 10; max-width: 1200px; margin: 0 auto; padding: 0 48px; height: 100%; display: flex; flex-direction: column; justify-content: center;">
-        
-        <h1 style="font-size: 72px; font-weight: 700; line-height: 1.1; margin-bottom: 24px; letter-spacing: -0.02em; color: #f5f5f5; max-width: 800px;">
-            Break Through Your Plateau.<br>
-            <span style="color: #dc2626;">From Anywhere.</span>
-        </h1>
-        
-        <p style="font-size: 22px; color: #e8e8e8; margin-bottom: 40px; line-height: 1.5; max-width: 600px;">
-            Virtual specialist for athletes stuck after knee and hip surgery—I partner with your local PT or take over after you graduate.
-        </p>
-        
-        <div style="display: flex; gap: 16px; margin-bottom: 40px; flex-wrap: wrap;">
-            <a href="services.html" style="background: #dc2626; color: #f5f5f5; padding: 18px 40px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 18px; box-shadow: 0 4px 12px rgba(220, 38, 38, 0.4); transition: all 0.2s;">
-                Start Virtual Coaching
-            </a>
-            <a href="book.html" style="background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border: 2px solid rgba(255, 255, 255, 0.3); color: #f5f5f5; padding: 16px 40px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 18px; transition: all 0.2s;">
-                Book Chicago Session
-            </a>
-        </div>
-        
-        <!-- Stats row -->
-        <div style="display: flex; gap: 48px;">
-            <div>
-                <div style="font-size: 48px; font-weight: 700; color: #dc2626; line-height: 1; margin-bottom: 4px;">100+</div>
-                <div style="font-size: 13px; color: #e8e8e8; text-transform: uppercase; letter-spacing: 0.1em;">Athletes Returned</div>
+        <!-- Hero Section -->
+        <section class="hero-image-block" style="background-image: url('pt-action-bfr.webp');">
+            <div class="hero-overlay"></div>
+            <div class="container hero-content-wrap">
+                <div class="hero-text-area">
+                    <h1 class="hero-title">
+                        Break Through Your Plateau.<br>
+                        <span class="accent-text-blue">From Anywhere.</span>
+                    </h1>
+                    <p class="hero-subtext">
+                        Virtual specialist for athletes stuck after knee and hip surgery—I partner with your local PT or take over after you graduate.
+                    </p>
+                    <div class="cta-group">
+                        <a href="services.html" class="btn btn-maroon btn-large">Start Virtual Coaching</a>
+                        <a href="book.html" class="btn btn-blue-outline btn-large" style="margin-left: 16px;">Book Chicago Session</a>
+                    </div>
+                    
+                    <!-- Stats Area -->
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">100+</span>
+                            <span class="stat-label">Athletes Returned</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number blue">50</span>
+                            <span class="stat-label">States Served</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div>
-                <div style="font-size: 48px; font-weight: 700; color: #0ea5e9; line-height: 1; margin-bottom: 4px;">50</div>
-                <div style="font-size: 13px; color: #e8e8e8; text-transform: uppercase; letter-spacing: 0.1em;">States Served</div>
-            </div>
-        </div>
-        
-    </div>
-</section>
+        </section>
 
-<!-- Mobile adjustments -->
-<style>
-@media (max-width: 768px) {
-    section[style*="height: 600px"] {
-        height: 500px !important;
-    }
-    
-    section h1 {
-        font-size: 40px !important;
-    }
-    
-    section p {
-        font-size: 18px !important;
-    }
-}
-</style>
-<!-- PROOF POINTS SECTION -->
-<section style="padding: 60px 48px; background: linear-gradient(180deg, #0a0a0a 0%, #0f0f0f 100%); position: relative;">
-    <div style="max-width: 1200px; margin: 0 auto;">
-        <!-- Section Header -->
-        <div style="text-align: center; margin-bottom: 64px;">
-            <div style="width: 60px; height: 4px; background: #dc2626; margin: 0 auto 24px;"></div>
-            <h2 style="font-size: 42px; font-weight: 700; color: #f5f5f5; margin-bottom: 16px; border: none; padding: 0; display: block;">
-                Why Athletes Choose Me
-            </h2>
-            <p style="font-size: 20px; color: #a3a3a3; max-width: 700px; margin: 0 auto;">
-                Complex case expertise meets objective measurement
-            </p>
-        </div>
-        
-        <!-- Cards Grid -->
-        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px;">
-            
-            <!-- Card 1: Complex Cases -->
-            <div style="background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 12px; padding: 40px; transition: all 0.3s ease; position: relative; overflow: hidden;" 
-                 onmouseover="this.style.borderColor='#dc2626'; this.style.transform='translateY(-8px)'; this.style.boxShadow='0 8px 32px rgba(220, 38, 38, 0.3)'" 
-                 onmouseout="this.style.borderColor='#2a2a2a'; this.style.transform='translateY(0)'; this.style.boxShadow='none'">
-                
-                <!-- Background gradient (subtle) -->
-                <div style="position: absolute; top: 0; right: 0; width: 200px; height: 200px; background: radial-gradient(circle, rgba(220, 38, 38, 0.08), transparent); pointer-events: none;"></div>
-                
-                <!-- Icon -->
-                <div style="width: 56px; height: 56px; background: rgba(220, 38, 38, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 24px; position: relative;">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
-                        <path d="M2 17l10 5 10-5"></path>
-                        <path d="M2 12l10 5 10-5"></path>
-                    </svg>
+        <!-- Authority / Proof Points Section -->
+        <section class="authority-section">
+            <div class="container">
+                <div class="section-header-center">
+                    <div class="accent-bar"></div>
+                    <h2>Why Athletes Choose Me</h2>
+                    <p>Complex case expertise meets objective measurement</p>
                 </div>
                 
-                <!-- Stat -->
-                <div style="font-size: 48px; font-weight: 700; color: #dc2626; line-height: 1; margin-bottom: 8px; position: relative;">100+</div>
-                
-                <!-- Title -->
-                <h3 style="font-size: 22px; margin-bottom: 12px; color: #f5f5f5; font-weight: 600; position: relative;">Complex Case Specialist</h3>
-                
-                <!-- Description -->
-                <p style="color: #a3a3a3; line-height: 1.6; font-size: 16px; position: relative;">
-                    Athletes returned to competition after complex knee and hip procedures including ACL, meniscus, labral repairs, and cartilage restoration.
-                </p>
-            </div>
-            
-            <!-- Card 2: Evidence-Based -->
-            <div style="background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 12px; padding: 40px; transition: all 0.3s ease; position: relative; overflow: hidden;" 
-                 onmouseover="this.style.borderColor='#0ea5e9'; this.style.transform='translateY(-8px)'; this.style.boxShadow='0 8px 32px rgba(14, 165, 233, 0.3)'" 
-                 onmouseout="this.style.borderColor='#2a2a2a'; this.style.transform='translateY(0)'; this.style.boxShadow='none'">
-                
-                <!-- Background gradient (subtle) -->
-                <div style="position: absolute; top: 0; right: 0; width: 200px; height: 200px; background: radial-gradient(circle, rgba(14, 165, 233, 0.08), transparent); pointer-events: none;"></div>
-                
-                <!-- Icon -->
-                <div style="width: 56px; height: 56px; background: rgba(14, 165, 233, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 24px; position: relative;">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0ea5e9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
-                    </svg>
+                <div class="grid-3 authority-grid">
+                    <!-- Card 1 (Maroon) -->
+                    <div class="card authority-card maroon-hover">
+                        <div class="card-icon-wrap maroon-bg">
+                            <i data-lucide="layers"></i>
+                        </div>
+                        <div class="card-stat">100+</div>
+                        <h3>Complex Case Specialist</h3>
+                        <p>Athletes returned to competition after complex knee and hip procedures including ACL, meniscus, and labral repairs.</p>
+                    </div>
+                    
+                    <!-- Card 2 (Electric Blue Accent) -->
+                    <div class="card authority-card blue-hover">
+                        <div class="card-icon-wrap blue-bg">
+                            <i data-lucide="activity"></i>
+                        </div>
+                        <div class="card-stat blue">1500+</div>
+                        <h3>Advanced Training Hours</h3>
+                        <p>Residency-trained expertise in complex cases with objective measurement systems. Your recovery is systematic.</p>
+                    </div>
+                    
+                    <!-- Card 3 (Maroon) -->
+                    <div class="card authority-card maroon-hover">
+                        <div class="card-icon-wrap maroon-bg">
+                            <i data-lucide="book-open"></i>
+                        </div>
+                        <div class="card-stat">Top 1%</div>
+                        <h3>Research Protocol Access</h3>
+                        <p>Active clinical researcher at a leading academic medical center. Your treatment uses cutting-edge protocols.</p>
+                    </div>
                 </div>
-                
-                <!-- Stat -->
-                <div style="font-size: 48px; font-weight: 700; color: #0ea5e9; line-height: 1; margin-bottom: 8px; position: relative;">1500+</div>
-                
-                <!-- Title -->
-                <h3 style="font-size: 22px; margin-bottom: 12px; color: #f5f5f5; font-weight: 600; position: relative;">Advanced Training Hours</h3>
-                
-                <!-- Description -->
-                <p style="color: #a3a3a3; line-height: 1.6; font-size: 16px; position: relative;">
-                    Residency-trained expertise in complex cases with objective measurement systems. Your recovery is systematic, not guesswork.
-                </p>
             </div>
-            
-            <!-- Card 3: Research-Backed -->
-            <div style="background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 12px; padding: 40px; transition: all 0.3s ease; position: relative; overflow: hidden;" 
-                 onmouseover="this.style.borderColor='#dc2626'; this.style.transform='translateY(-8px)'; this.style.boxShadow='0 8px 32px rgba(220, 38, 38, 0.3)'" 
-                 onmouseout="this.style.borderColor='#2a2a2a'; this.style.transform='translateY(0)'; this.style.boxShadow='none'">
-                
-                <!-- Background gradient (subtle) -->
-                <div style="position: absolute; top: 0; right: 0; width: 200px; height: 200px; background: radial-gradient(circle, rgba(220, 38, 38, 0.08), transparent); pointer-events: none;"></div>
-                
-                <!-- Icon -->
-                <div style="width: 56px; height: 56px; background: rgba(220, 38, 38, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 24px; position: relative;">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
-                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
-                    </svg>
-                </div>
-                
-                <!-- Stat -->
-                <div style="font-size: 48px; font-weight: 700; color: #dc2626; line-height: 1; margin-bottom: 8px; position: relative;">Top 1%</div>
-                
-                <!-- Title -->
-                <h3 style="font-size: 22px; margin-bottom: 12px; color: #f5f5f5; font-weight: 600; position: relative;">Research Protocol Access</h3>
-                
-                <!-- Description -->
-                <p style="color: #a3a3a3; line-height: 1.6; font-size: 16px; position: relative;">
-                    Active clinical researcher and program director at a leading academic medical center. Your treatment uses cutting-edge protocols.
-                </p>
-            </div>
-            
-        </div>
-    </div>
-</section>
+        </section>
 
-<!-- Mobile Responsive -->
-<style>
-@media (max-width: 1024px) {
-    section[style*="grid-template-columns: repeat(3, 1fr)"] > div > div {
-        grid-template-columns: repeat(2, 1fr) !important;
-    }
-}
-
-@media (max-width: 640px) {
-    section[style*="grid-template-columns: repeat(3, 1fr)"] > div > div {
-        grid-template-columns: 1fr !important;
-        gap: 24px !important;
-    }
-    
-    section[style*="padding: 100px 48px"] {
-        padding: 60px 24px !important;
-    }
-}
-</style>
-        <!-- What I Do Section -->
+        <!-- General Services -->
         <section class="services-overview">
             <div class="container">
-                <h2 class="section-heading text-center">What I Do</h2>
+                <h2 class="section-heading text-center">Focus Areas</h2>
                 <div class="grid-3">
                     <article class="card service-card">
-                        <h3>Complex Knee Rehabilitation</h3>
-                        <p>Post-operative recovery, sports performance, return-to-activity planning for athletes and active individuals.</p>
-                        <a href="services.html" class="service-link">Learn more →</a>
+                        <h3>Complex Knee Rehab</h3>
+                        <p>Post-operative recovery and return-to-activity planning for high-performance athletes.</p>
+                        <a href="services.html" class="service-link">View clinical approach →</a>
                     </article>
 
                     <article class="card service-card">
                         <h3>Clinical Mentorship</h3>
-                        <p>Mentoring the next generation of physical therapists through residency programs and 1:1 coaching.</p>
-                        <a href="services.html" class="service-link">Learn more →</a>
+                        <p>Mentoring the next generation of physical therapists through 1:1 clinical coaching.</p>
+                        <a href="services.html" class="service-link">View mentorship options →</a>
                     </article>
 
                     <article class="card service-card">
                         <h3>Technology Integration</h3>
-                        <p>Building frameworks and mental models to integrate technology into clinical workflows to improve the lives of patients and providers.</p>
-                        <a href="services.html" class="service-link">Learn more →</a>
+                        <p>Building frameworks for AI and technology integration to improve patient outcomes.</p>
+                        <a href="services.html" class="service-link">Learn about frameworks →</a>
                     </article>
                 </div>
             </div>
         </section>
-<section style="padding: 80px 0;">
-  <div style="max-width: 1200px; margin: 0 auto; padding: 0 48px;">
-    <h2 style="font-size: 36px; margin-bottom: 16px;">Latest Thinking</h2>
-    <p style="color: #a3a3a3; margin-bottom: 48px; max-width: 800px;">
-      Thoughts on AI-augmented clinical practice, complex knee rehabilitation, and mentoring the next generation of PTs.
-    </p>
-    
-    <div id="home-posts-container">
-      <p style="color: #a3a3a3; text-align: center;">Loading recent posts...</p>
-    </div>
-    
-    <div style="text-align: center; margin-top: 48px;">
-      <a href="writing.html" style="display: inline-block; background: #8b1a1a; color: #f5f5f5; padding: 14px 32px; border-radius: 6px; text-decoration: none; font-weight: 500;">
-        See all writing →
-      </a>
-    </div>
-  </div>
-</section>
 
-        <!-- Connect Section -->
-        <section class="connect-section">
+        <!-- Dynamic Insights -->
+        <section class="writing-preview">
             <div class="container">
-                <h2 class="section-heading text-center">Connect</h2>
-                <div class="grid-3">
-                    <a href="https://instagram.com/mutholamrehab" target="_blank" class="card social-card">
-                        <span class="platform-label">Instagram</span>
-                        <h3>@mutholamrehab</h3>
-                        <p>Lowering the barrier—casual thoughts, behind-the-scenes clinical work.</p>
-                    </a>
-                    <a href="https://www.linkedin.com/in/albinmutholam/" target="_blank" class="card social-card">
-                        <span class="platform-label">LinkedIn</span>
-                        <h3>Professional Network</h3>
-                        <p>Professional network and long-form thought leadership.</p>
-                    </a>
-                    <a href="https://substack.com/@albinmutholam" target="_blank" class="card social-card">
-                        <span class="platform-label">Substack</span>
-                        <h3>Clinical Deep Dives</h3>
-                        <p>Deep dives into clinical practice and technology integration.</p>
-                    </a>
+                <div class="section-header-left">
+                    <h2>Latest Thinking</h2>
+                    <p class="subtext">Insights on clinical practice, rehab science, and technology.</p>
+                </div>
+                <div id="home-posts-container">
+                    <p style="color: var(--text-secondary);">Loading recent insights...</p>
+                </div>
+                <div class="text-center" style="margin-top: 40px;">
+                    <a href="writing.html" class="btn btn-maroon">See all writing →</a>
                 </div>
             </div>
         </section>
@@ -293,9 +154,9 @@
         <!-- Final CTA -->
         <section class="cta-banner">
             <div class="container text-center">
-                <h2>Ready to work together?</h2>
-                <p>Whether you're seeking guidance in your recovery or mentorship in your clinical practice, I'm here to help.</p>
-                <a href="book.html" class="btn btn-maroon">Book a Session</a>
+                <h2>Ready to move past your plateau?</h2>
+                <p>Whether you're an athlete or a clinician, let's build a systematic plan for your growth.</p>
+                <a href="book.html" class="btn btn-maroon btn-large">Book a Session</a>
             </div>
         </section>
     </main>
@@ -311,15 +172,15 @@
                 <div class="footer-nav">
                     <div class="footer-col">
                         <h4>Explore</h4>
-                        <a href="#">Now</a>
-                        <a href="#">Manifesto</a>
-                        <a href="#">Contact</a>
+                        <a href="now.html">Now</a>
+                        <a href="manifesto.html">Manifesto</a>
+                        <a href="contact.html">Contact</a>
                     </div>
                     <div class="footer-col">
                         <h4>Social</h4>
-                        <a href="#">Instagram</a>
-                        <a href="#">LinkedIn</a>
-                        <a href="#">Substack</a>
+                        <a href="https://instagram.com/mutholamrehab">Instagram</a>
+                        <a href="https://www.linkedin.com/in/albinmutholam/">LinkedIn</a>
+                        <a href="https://substack.com/@albinmutholam">Substack</a>
                     </div>
                 </div>
             </div>
@@ -330,58 +191,32 @@
     </footer>
 
     <script>
-        // Initialize Icons
         lucide.createIcons();
-    </script>
-<script>
-async function loadHomeSubstackPosts() {
-  const container = document.getElementById('home-posts-container');
-  
-  try {
-    const response = await fetch('https://api.rss2json.com/v1/api.json?rss_url=https://albinmutholam.substack.com/feed');
-    const data = await response.json();
-    
-    if (data.status !== 'ok' || !data.items || data.items.length === 0) {
-      container.innerHTML = '<p style="color: #a3a3a3; text-align: center;">No posts found. Check back soon!</p>';
-      return;
-    }
-    
-    // Create grid container
-    container.innerHTML = '<div class="posts-grid"></div>';
-    const grid = container.querySelector('.posts-grid');
-    
-    // Display only 3 most recent posts
-    data.items.slice(0, 3).forEach(post => {
-      const date = new Date(post.pubDate).toLocaleDateString('en-US', { 
-        year: 'numeric', 
-        month: 'long' 
-      });
-      
-      // Strip HTML from description and limit to 150 chars
-      const tempDiv = document.createElement('div');
-      tempDiv.innerHTML = post.description;
-      const excerpt = (tempDiv.textContent || tempDiv.innerText).substring(0, 150) + '...';
-      
-      const card = document.createElement('div');
-      card.className = 'post-card';
-      card.innerHTML = `
-        <h3>${post.title}</h3>
-        <p class="post-date">${date}</p>
-        <p class="post-excerpt">${excerpt}</p>
-        <a href="${post.link}" target="_blank" class="post-link">Read on Substack →</a>
-      `;
-      
-      grid.appendChild(card);
-    });
-    
-  } catch (error) {
-    console.error('Error loading posts:', error);
-    container.innerHTML = '<p style="color: #a3a3a3; text-align: center;">Unable to load posts. Visit <a href="https://substack.com/@albinmutholam" style="color: #8b1a1a;">Substack</a> directly.</p>';
-  }
-}
 
-// Load posts when page loads
-document.addEventListener('DOMContentLoaded', loadHomeSubstackPosts);
-</script>
+        async function loadHomeSubstackPosts() {
+            const container = document.getElementById('home-posts-container');
+            try {
+                const response = await fetch('https://api.rss2json.com/v1/api.json?rss_url=https://albinmutholam.substack.com/feed');
+                const data = await response.json();
+                if (data.status === 'ok' && data.items) {
+                    container.innerHTML = '<div class="posts-grid"></div>';
+                    const grid = container.querySelector('.posts-grid');
+                    data.items.slice(0, 3).forEach(post => {
+                        const card = document.createElement('div');
+                        card.className = 'post-card';
+                        card.innerHTML = `
+                            <h3>${post.title}</h3>
+                            <p class="post-date" style="color: #a3a3a3; font-size: 14px; margin: 8px 0;">${new Date(post.pubDate).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}</p>
+                            <a href="${post.link}" target="_blank" class="post-link" style="color: #dc2626; font-weight: 600; text-decoration: none;">Read insight →</a>
+                        `;
+                        grid.appendChild(card);
+                    });
+                }
+            } catch (e) {
+                container.innerHTML = '<p style="color: #a3a3a3;">Visit Substack for latest insights.</p>';
+            }
+        }
+        loadHomeSubstackPosts();
+    </script>
 </body>
 </html>
