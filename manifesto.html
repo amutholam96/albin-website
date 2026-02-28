@@ -13,8 +13,8 @@
     <!-- Global Stylesheet -->
     <link rel="stylesheet" href="style.css">
 
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Lucide Icons (Deferred for performance) -->
+    <script src="https://unpkg.com/lucide@latest" defer></script>
 
     <style>
         /* Manifesto Page Specific Layout */
@@ -113,23 +113,30 @@
 </head>
 <body>
 
-    <!-- Header -->
+    <!-- Header (Updated with Mobile Menu) -->
     <header>
         <div class="container nav-container">
             <a href="index.html" class="logo">Albin Mutholam, PT, DPT, OCS</a>
-            <nav class="nav-links">
+            
+            <!-- Mobile Menu Toggle Button -->
+            <button class="mobile-menu-btn" aria-label="Toggle navigation" id="mobileMenuBtn">
+                <i data-lucide="menu"></i>
+            </button>
+
+            <nav class="nav-links" id="navLinks">
                 <a href="index.html">Home</a>
                 <a href="about.html">About</a>
                 <a href="services.html">Services</a>
                 <a href="writing.html">Writing</a>
                 <a href="resources.html">Resources</a>
+                <a href="book.html" class="btn btn-maroon mobile-only-btn">Book Session</a>
             </nav>
-            <a href="book.html" class="btn btn-maroon">Book Session</a>
+            <a href="book.html" class="btn btn-maroon desktop-only-btn">Book Session</a>
         </div>
     </header>
 
     <main>
-        <section>
+        <section style="padding-top: 60px;">
             <div class="container manifesto-container">
                 <!-- Intro -->
                 <div class="manifesto-intro">
@@ -225,8 +232,28 @@
         </div>
     </footer>
 
+    <!-- Scripts -->
     <script>
-        lucide.createIcons();
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+            initMobileMenu();
+        });
+
+        // Mobile Menu Logic
+        function initMobileMenu() {
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const navLinks = document.getElementById('navLinks');
+            
+            if (mobileMenuBtn && navLinks) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    navLinks.classList.toggle('active');
+                    
+                    const iconName = navLinks.classList.contains('active') ? 'x' : 'menu';
+                    mobileMenuBtn.innerHTML = `<i data-lucide="${iconName}"></i>`;
+                    lucide.createIcons();
+                });
+            }
+        }
     </script>
 </body>
 </html>
