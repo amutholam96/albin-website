@@ -13,12 +13,13 @@
     <!-- Global Stylesheet -->
     <link rel="stylesheet" href="style.css">
 
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Lucide Icons (Deferred for performance) -->
+    <script src="https://unpkg.com/lucide@latest" defer></script>
 
     <style>
-        /* Writing Page Specific Styles */
+        /* Writing Page Specific Layouts (Global card styles removed to prevent duplication) */
         .writing-intro {
+            padding-top: 60px;
             padding-bottom: 40px;
         }
 
@@ -30,6 +31,7 @@
             max-width: 700px;
             color: var(--text-secondary);
             margin-bottom: 32px;
+            font-size: 20px;
         }
 
         #posts-container {
@@ -37,86 +39,22 @@
             padding-bottom: 80px;
         }
 
-        .posts-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 32px;
-            margin-top: 48px;
-        }
-
-        .post-card {
-            background: #1a1a1a;
-            border: 1px solid #2a2a2a;
-            border-radius: 8px;
-            padding: 32px;
-            transition: border-color 0.2s ease, transform 0.2s ease;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .post-card:hover {
-            border-color: #8b1a1a;
-            transform: translateY(-4px);
-        }
-
-        .post-card h3 {
-            margin-top: 0;
-            margin-bottom: 12px;
-            color: #f5f5f5;
-            font-size: 24px;
-        }
-
-        .post-date {
-            color: #a3a3a3;
-            font-size: 14px;
-            margin-bottom: 16px;
-            font-weight: 500;
-        }
-
         .post-excerpt {
-            color: #f5f5f5;
+            color: var(--text-primary);
             line-height: 1.6;
             margin-bottom: 24px;
             font-size: 16px;
             flex-grow: 1;
         }
 
-        .post-link {
-            color: #8b1a1a;
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .post-link:hover {
-            text-decoration: underline;
-        }
-
         .loading-text {
-            color: #a3a3a3;
+            color: var(--text-secondary);
             text-align: center;
             margin-top: 100px;
             font-style: italic;
         }
 
-        /* Active Nav State */
-        .nav-links a.active {
-            color: var(--accent-maroon);
-            font-weight: 600;
-        }
-
-        @media (max-width: 1024px) {
-            .posts-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
         @media (max-width: 640px) {
-            .posts-grid {
-                grid-template-columns: 1fr;
-            }
             .writing-intro h1 {
                 font-size: 38px;
             }
@@ -125,18 +63,28 @@
 </head>
 <body>
 
-    <!-- Header -->
+    <!-- Header (Updated with Mobile Menu) -->
     <header>
         <div class="container nav-container">
             <a href="index.html" class="logo">Albin Mutholam, PT, DPT, OCS</a>
-            <nav class="nav-links">
+            
+            <!-- Mobile Menu Toggle Button -->
+            <button class="mobile-menu-btn" aria-label="Toggle navigation" id="mobileMenuBtn">
+                <i data-lucide="menu"></i>
+            </button>
+
+            <nav class="nav-links" id="navLinks">
                 <a href="index.html">Home</a>
                 <a href="about.html">About</a>
                 <a href="services.html">Services</a>
-                <a href="writing.html" class="active">Writing</a>
+                <a href="writing.html" class="active" aria-current="page">Writing</a>
                 <a href="resources.html">Resources</a>
+                <!-- Mobile-only CTA -->
+                <a href="book.html" class="btn btn-maroon mobile-only-btn">Book Session</a>
             </nav>
-            <a href="book.html" class="btn btn-maroon">Book Session</a>
+            
+            <!-- Desktop-only CTA -->
+            <a href="book.html" class="btn btn-maroon desktop-only-btn">Book Session</a>
         </div>
     </header>
 
@@ -146,7 +94,7 @@
             <div class="container">
                 <h1>Writing</h1>
                 <p class="subheading">Thoughts on AI-augmented clinical practice, complex knee rehabilitation, and mentoring the next generation of PTs.</p>
-                <a href="https://substack.com/@albinmutholam" target="_blank" class="btn btn-maroon">Get new posts in your inbox</a>
+                <a href="https://substack.com/@albinmutholam" target="_blank" rel="noopener noreferrer" class="btn btn-maroon">Get new posts in your inbox</a>
             </div>
         </section>
 
@@ -171,15 +119,15 @@
                 <div class="footer-nav">
                     <div class="footer-col">
                         <h4>Explore</h4>
-                        <a href="#">Now</a>
-                        <a href="#">Manifesto</a>
+                        <a href="now.html">Now</a>
+                        <a href="manifesto.html">Manifesto</a>
                         <a href="contact.html">Contact</a>
                     </div>
                     <div class="footer-col">
                         <h4>Social</h4>
-                        <a href="https://instagram.com/mutholamrehab">Instagram</a>
-                        <a href="https://www.linkedin.com/in/albinmutholam/">LinkedIn</a>
-                        <a href="https://substack.com/@albinmutholam">Substack</a>
+                        <a href="https://instagram.com/mutholamrehab" target="_blank" rel="noopener noreferrer">Instagram</a>
+                        <a href="https://www.linkedin.com/in/albinmutholam/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                        <a href="https://substack.com/@albinmutholam" target="_blank" rel="noopener noreferrer">Substack</a>
                     </div>
                 </div>
             </div>
@@ -189,60 +137,80 @@
         </div>
     </footer>
 
-    <!-- JavaScript for Substack RSS Integration -->
+    <!-- Scripts -->
     <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+            loadSubstackPosts();
+            initMobileMenu();
+        });
+
+        // Mobile Menu Logic
+        function initMobileMenu() {
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const navLinks = document.getElementById('navLinks');
+            
+            if (mobileMenuBtn && navLinks) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    navLinks.classList.toggle('active');
+                    
+                    const iconName = navLinks.classList.contains('active') ? 'x' : 'menu';
+                    mobileMenuBtn.innerHTML = `<i data-lucide="${iconName}"></i>`;
+                    lucide.createIcons();
+                });
+            }
+        }
+
+        // Secure Substack RSS Integration
         async function loadSubstackPosts() {
             const container = document.getElementById('posts-container');
             
             try {
-                // Fetch RSS feed via rss2json API
                 const response = await fetch('https://api.rss2json.com/v1/api.json?rss_url=https://albinmutholam.substack.com/feed');
                 const data = await response.json();
                 
                 if (data.status !== 'ok' || !data.items || data.items.length === 0) {
-                    container.innerHTML = '<p style="color: #a3a3a3; text-align: center;">No posts found. Check back soon!</p>';
+                    container.innerHTML = '<p class="loading-text">No posts found. Check back soon!</p>';
                     return;
                 }
                 
-                // Create grid container
                 container.innerHTML = '<div class="posts-grid"></div>';
                 const grid = container.querySelector('.posts-grid');
                 
-                // Display posts (limit to 6 most recent)
                 data.items.slice(0, 6).forEach(post => {
                     const date = new Date(post.pubDate).toLocaleDateString('en-US', { 
                         year: 'numeric', 
                         month: 'long' 
                     });
                     
-                    // Strip HTML from description and limit to 150 chars
+                    // Strip HTML from description
                     const tempDiv = document.createElement('div');
                     tempDiv.innerHTML = post.description;
-                    const excerpt = (tempDiv.textContent || tempDiv.innerText).substring(0, 150) + '...';
+                    const excerptText = (tempDiv.textContent || tempDiv.innerText).substring(0, 150) + '...';
                     
                     const card = document.createElement('div');
                     card.className = 'post-card';
+                    
+                    // Inject structural HTML safely
                     card.innerHTML = `
-                        <h3>${post.title}</h3>
+                        <h3></h3>
                         <p class="post-date">${date}</p>
-                        <p class="post-excerpt">${excerpt}</p>
-                        <a href="${post.link}" target="_blank" class="post-link">Read on Substack →</a>
+                        <p class="post-excerpt"></p>
+                        <a href="${post.link}" target="_blank" rel="noopener noreferrer" class="post-link">Read on Substack →</a>
                     `;
+                    
+                    // Safely inject text content to prevent XSS
+                    card.querySelector('h3').textContent = post.title;
+                    card.querySelector('.post-excerpt').textContent = excerptText;
                     
                     grid.appendChild(card);
                 });
                 
             } catch (error) {
                 console.error('Error loading posts:', error);
-                container.innerHTML = '<p style="color: #a3a3a3; text-align: center;">Unable to load posts. Visit <a href="https://substack.com/@albinmutholam" style="color: #8b1a1a; font-weight: 600;">Substack</a> directly.</p>';
+                container.innerHTML = '<p class="loading-text">Unable to load posts. <a href="https://substack.com/@albinmutholam" target="_blank" rel="noopener noreferrer" style="color: var(--accent-maroon); font-weight: 600;">Visit Substack directly →</a></p>';
             }
         }
-
-        // Initialize Lucide icons and Load posts when page loads
-        document.addEventListener('DOMContentLoaded', () => {
-            lucide.createIcons();
-            loadSubstackPosts();
-        });
     </script>
 </body>
 </html>
