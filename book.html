@@ -8,13 +8,13 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@600;700&family=Inter:wght@400;600&family=Space+Mono&display=swap" rel="stylesheet">
     
     <!-- Global Stylesheet -->
     <link rel="stylesheet" href="style.css">
 
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Lucide Icons (Deferred for performance) -->
+    <script src="https://unpkg.com/lucide@latest" defer></script>
 
     <style>
         /* Page-specific Booking Layout */
@@ -40,11 +40,29 @@
             font-size: 28px;
         }
 
-        /* Session Type Selection Cards */
+        /* Session Type Selection Cards (Refactored for pure CSS/HTML5 Radio Buttons) */
         .type-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 24px;
+        }
+
+        /* Visually hide the radio input but keep it accessible for screen readers and keyboard focus */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+
+        .type-card-label {
+            cursor: pointer;
+            display: block;
         }
 
         .type-card {
@@ -52,18 +70,25 @@
             border: 1px solid var(--border-color);
             padding: 24px;
             border-radius: 8px;
-            cursor: pointer;
             transition: all 0.2s ease;
             position: relative;
+            height: 100%;
         }
 
         .type-card:hover {
             border-color: #444;
         }
 
-        .type-card.selected {
+        /* Pure CSS logic based on radio button state */
+        input[type="radio"]:checked + .type-card {
             border-color: var(--accent-maroon);
             background: #252525;
+        }
+
+        /* Keyboard accessibility focus ring */
+        input[type="radio"]:focus-visible + .type-card {
+            outline: 2px solid var(--accent-blue);
+            outline-offset: 4px;
         }
 
         .type-card h3 {
@@ -89,7 +114,7 @@
             transition: opacity 0.2s ease;
         }
 
-        .type-card.selected .check-icon {
+        input[type="radio"]:checked + .type-card .check-icon {
             opacity: 1;
         }
 
@@ -140,6 +165,7 @@
             font-size: 16px;
             margin-top: 12px;
             border: none;
+            cursor: pointer;
         }
 
         /* Calendly Placeholder */
@@ -168,70 +194,94 @@
 </head>
 <body>
 
-    <!-- Header -->
+    <!-- Header (Updated with Mobile Menu) -->
     <header>
         <div class="container nav-container">
             <a href="index.html" class="logo">Albin Mutholam, PT, DPT, OCS</a>
-            <nav class="nav-links">
+            
+            <!-- Mobile Menu Toggle Button -->
+            <button class="mobile-menu-btn" aria-label="Toggle navigation" id="mobileMenuBtn">
+                <i data-lucide="menu"></i>
+            </button>
+
+            <nav class="nav-links" id="navLinks">
                 <a href="index.html">Home</a>
                 <a href="about.html">About</a>
                 <a href="services.html">Services</a>
                 <a href="writing.html">Writing</a>
                 <a href="resources.html">Resources</a>
+                <a href="book.html" class="btn btn-maroon mobile-only-btn" aria-current="page">Book Session</a>
             </nav>
-            <a href="book.html" class="btn btn-maroon">Book Session</a>
+            <a href="book.html" class="btn btn-maroon desktop-only-btn" aria-current="page">Book Session</a>
         </div>
     </header>
 
     <main>
-        <section class="booking-intro">
+        <section class="booking-intro" style="padding-top: 60px;">
             <div class="container">
                 <h1>Book a Session</h1>
                 <p>All sessions are 30 minutes. Pricing is shared privately after booking confirmation.</p>
             </div>
         </section>
 
-        <!-- Session Type Selection -->
-        <section class="booking-section">
-            <div class="container">
-                <h2>1. Select Session Type</h2>
-                <div class="type-grid" id="typeGrid">
-                    <!-- Card 1 -->
-                    <div class="type-card" onclick="selectType(this, 'Physical Therapy Consultation')">
-                        <i data-lucide="check-circle-2" class="check-icon"></i>
-                        <h3>1:1 Physical Therapy</h3>
-                        <p>Complex knee rehabilitation, post-op recovery, sports performance.</p>
-                    </div>
-                    <!-- Card 2 -->
-                    <div class="type-card" onclick="selectType(this, 'Clinical Mentorship Discovery Call')">
-                        <i data-lucide="check-circle-2" class="check-icon"></i>
-                        <h3>Clinical Mentorship</h3>
-                        <p>Guidance for new grads and developing clinicians.</p>
-                    </div>
-                    <!-- Card 3 -->
-                    <div class="type-card" onclick="selectType(this, 'AI-Augmented Practice Consult')">
-                        <i data-lucide="check-circle-2" class="check-icon"></i>
-                        <h3>AI Practice Consult</h3>
-                        <p>Technology integration into clinical workflows.</p>
-                    </div>
-                    <!-- Card 4 -->
-                    <div class="type-card" onclick="selectType(this, 'Interprofessional Discussion')">
-                        <i data-lucide="check-circle-2" class="check-icon"></i>
-                        <h3>Interprofessional</h3>
-                        <p>Collaborative care conversations with physicians or other providers.</p>
+        <!-- Intake Form (Wraps both Selection and Details now) -->
+        <form id="bookingForm" onsubmit="handleFormSubmit(event)">
+            
+            <!-- Session Type Selection -->
+            <section class="booking-section">
+                <div class="container">
+                    <h2>1. Select Session Type</h2>
+                    <div class="type-grid" id="typeGrid">
+                        
+                        <!-- Card 1 (Refactored to Radio Button Label) -->
+                        <label class="type-card-label">
+                            <input type="radio" name="session_type" value="1:1 Physical Therapy" class="sr-only" required>
+                            <div class="type-card">
+                                <i data-lucide="check-circle-2" class="check-icon"></i>
+                                <h3>1:1 Physical Therapy</h3>
+                                <p>Complex knee rehabilitation, post-op recovery, sports performance.</p>
+                            </div>
+                        </label>
+
+                        <!-- Card 2 -->
+                        <label class="type-card-label">
+                            <input type="radio" name="session_type" value="Clinical Mentorship" class="sr-only" required>
+                            <div class="type-card">
+                                <i data-lucide="check-circle-2" class="check-icon"></i>
+                                <h3>Clinical Mentorship</h3>
+                                <p>Guidance for new grads and developing clinicians.</p>
+                            </div>
+                        </label>
+
+                        <!-- Card 3 -->
+                        <label class="type-card-label">
+                            <input type="radio" name="session_type" value="AI Practice Consult" class="sr-only" required>
+                            <div class="type-card">
+                                <i data-lucide="check-circle-2" class="check-icon"></i>
+                                <h3>AI Practice Consult</h3>
+                                <p>Technology integration into clinical workflows.</p>
+                            </div>
+                        </label>
+
+                        <!-- Card 4 -->
+                        <label class="type-card-label">
+                            <input type="radio" name="session_type" value="Interprofessional Discussion" class="sr-only" required>
+                            <div class="type-card">
+                                <i data-lucide="check-circle-2" class="check-icon"></i>
+                                <h3>Interprofessional</h3>
+                                <p>Collaborative care conversations with physicians or other providers.</p>
+                            </div>
+                        </label>
+
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- Intake Form -->
-        <section class="booking-section">
-            <div class="container">
-                <h2 style="text-align: center;">2. Tell Me About Your Needs</h2>
-                <div class="form-container">
-                    <form id="bookingForm" onsubmit="handleFormSubmit(event)">
-                        <input type="hidden" id="sessionTypeInput" name="session_type" required>
-                        
+            <!-- Intake Details -->
+            <section class="booking-section">
+                <div class="container">
+                    <h2 style="text-align: center;">2. Tell Me About Your Needs</h2>
+                    <div class="form-container">
                         <div class="form-group">
                             <label for="name">Name</label>
                             <input type="text" id="name" name="name" placeholder="Your full name" required>
@@ -247,11 +297,12 @@
                             <textarea id="goals" name="goals" rows="4" placeholder="Describe your goals, questions, or what you're hoping to achieve..." required></textarea>
                         </div>
 
+                        <!-- Browser natively requires the radio button & fields before triggering submit -->
                         <button type="submit" class="btn btn-maroon btn-submit">Continue to Scheduling</button>
-                    </form>
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </form>
 
         <!-- Calendar Placeholder -->
         <section class="booking-section">
@@ -278,7 +329,7 @@
                         <h4>Explore</h4>
                         <a href="now.html">Now</a>
                         <a href="manifesto.html">Manifesto</a>
-                        <a href="#">Contact</a>
+                        <a href="contact.html">Contact</a>
                     </div>
                     <div class="footer-col">
                         <h4>Social</h4>
@@ -294,37 +345,40 @@
         </div>
     </footer>
 
+    <!-- Scripts -->
     <script>
-        // Lucide Icons
-        lucide.createIcons();
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+            initMobileMenu();
+        });
 
-        // Card Selection Logic
-        function selectType(element, typeName) {
-            // Remove 'selected' from all cards
-            document.querySelectorAll('.type-card').forEach(card => {
-                card.classList.remove('selected');
-            });
+        // Mobile Menu Logic
+        function initMobileMenu() {
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const navLinks = document.getElementById('navLinks');
             
-            // Add 'selected' to clicked card
-            element.classList.add('selected');
-            
-            // Update hidden input
-            document.getElementById('sessionTypeInput').value = typeName;
+            if (mobileMenuBtn && navLinks) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    navLinks.classList.toggle('active');
+                    
+                    const iconName = navLinks.classList.contains('active') ? 'x' : 'menu';
+                    mobileMenuBtn.innerHTML = `<i data-lucide="${iconName}"></i>`;
+                    lucide.createIcons();
+                });
+            }
         }
 
-        // Form Handling
+        // Form Handling (Drastically simplified since HTML5 handles validation now)
         function handleFormSubmit(event) {
             event.preventDefault();
-            const sessionType = document.getElementById('sessionTypeInput').value;
             
-            if (!sessionType) {
-                alert("Please select a session type above before continuing.");
-                window.scrollTo({ top: document.getElementById('typeGrid').offsetTop - 100, behavior: 'smooth' });
-                return;
-            }
+            // Extract the selected radio button value directly from the form
+            const formData = new FormData(event.target);
+            const sessionType = formData.get('session_type');
+            const userName = formData.get('name');
 
             // In a real implementation, you would send form data to your backend here
-            alert(`Thank you, ${document.getElementById('name').value}! In a live environment, you would now be redirected to the ${sessionType} calendar.`);
+            alert(`Thank you, ${userName}! In a live environment, you would now be redirected to the ${sessionType} calendar.`);
         }
     </script>
 </body>
