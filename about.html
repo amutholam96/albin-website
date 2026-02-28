@@ -8,13 +8,13 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@600;700&family=Inter:wght@400;600&family=Space+Mono&display=swap" rel="stylesheet">
     
-    <!-- Stylesheet -->
+    <!-- Global Stylesheet -->
     <link rel="stylesheet" href="style.css">
 
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Lucide Icons (Deferred for performance) -->
+    <script src="https://unpkg.com/lucide@latest" defer></script>
 
     <style>
         /* Page-specific layouts not in global style.css */
@@ -22,7 +22,7 @@
             display: grid;
             grid-template-columns: 1fr 1.5fr;
             gap: 60px;
-            align-items: start;
+            align-items: start; /* CRITICAL: Allows sticky to work in CSS Grid */
         }
 
         .hero-image-container {
@@ -30,16 +30,36 @@
             top: 120px;
         }
 
+        .headshot-img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 8px;
+            filter: grayscale(20%);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
         .bio-text p {
             margin-bottom: 24px;
             color: var(--text-secondary);
+            font-size: 18px;
         }
 
+        /* Values Grid */
         .values-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 24px;
             margin-top: 40px;
+        }
+        
+        .values-grid .card h3 {
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+        
+        /* Fixes the awkward empty hole for the 5th card */
+        .value-card-wide {
+            grid-column: 1 / -1; 
         }
 
         /* Timeline Styles */
@@ -61,20 +81,24 @@
 
         .timeline-item {
             position: relative;
-            margin-bottom: 24px;
-            padding-bottom: 8px;
+            margin-bottom: 32px;
         }
 
         .timeline-item::before {
             content: '';
             position: absolute;
             left: -37px;
-            top: 10px;
+            top: 6px;
             width: 12px;
             height: 12px;
             border-radius: 50%;
             background: var(--accent-maroon);
             border: 3px solid var(--bg-color);
+            transition: background 0.3s ease;
+        }
+
+        .timeline-item:hover::before {
+            background: var(--accent-blue);
         }
 
         .timeline-text {
@@ -83,6 +107,7 @@
             color: var(--text-primary);
         }
 
+        /* Beyond the Clinic */
         .beyond-section {
             margin-top: 80px;
             padding: 40px;
@@ -92,7 +117,7 @@
         }
 
         .beyond-list {
-            margin-top: 20px;
+            margin-top: 24px;
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 16px;
@@ -110,14 +135,10 @@
             content: "•";
             color: var(--accent-maroon);
             font-weight: bold;
+            font-size: 20px;
         }
 
-        /* Active Nav State */
-        .nav-links a.active {
-            color: var(--accent-maroon);
-            font-weight: 600;
-        }
-
+        /* Responsive */
         @media (max-width: 1024px) {
             .about-hero-grid {
                 grid-template-columns: 1fr;
@@ -127,42 +148,58 @@
                 position: static;
                 text-align: center;
             }
+            .headshot-img {
+                max-width: 300px;
+            }
         }
 
         @media (max-width: 768px) {
             .values-grid, .beyond-list {
                 grid-template-columns: 1fr;
             }
+            .value-card-wide {
+                grid-column: auto; /* Resets to single column on mobile */
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- Header -->
+    <!-- Header (Updated with Mobile Menu) -->
     <header>
         <div class="container nav-container">
             <a href="index.html" class="logo">Albin Mutholam, PT, DPT, OCS</a>
-            <nav class="nav-links">
+            
+            <!-- Mobile Menu Toggle Button -->
+            <button class="mobile-menu-btn" aria-label="Toggle navigation" id="mobileMenuBtn">
+                <i data-lucide="menu"></i>
+            </button>
+
+            <nav class="nav-links" id="navLinks">
                 <a href="index.html">Home</a>
-                <a href="about.html" class="active">About</a>
+                <a href="about.html" class="active" aria-current="page">About</a>
                 <a href="services.html">Services</a>
                 <a href="writing.html">Writing</a>
                 <a href="resources.html">Resources</a>
+                <a href="book.html" class="btn btn-maroon mobile-only-btn">Book Session</a>
             </nav>
-            <a href="book.html" class="btn btn-maroon">Book Session</a>
+            <a href="book.html" class="btn btn-maroon desktop-only-btn">Book Session</a>
         </div>
     </header>
 
     <main>
         <!-- About Hero Section -->
-        <section class="hero">
+        <section style="padding-top: 60px;">
             <div class="container">
                 <div class="about-hero-grid">
+                    <!-- Left: Sticky Image -->
                     <div class="hero-image-container">
-                        <img src="headshot-placeholder.jpg" alt="Albin Mutholam, board-certified orthopedic physical therapist" style="width: 100%; max-width: 400px; border-radius: 8px; filter: grayscale(20%);">
+                        <img src="headshot-placeholder.jpg" alt="Albin Mutholam, board-certified orthopedic physical therapist" class="headshot-img">
                     </div>
+                    
+                    <!-- Right: Bio Text -->
                     <div class="bio-text">
-                        <h1>About</h1>
+                        <h1 style="margin-bottom: 24px; font-size: 48px;">About</h1>
                         <p>Hello! I'm a residency-trained physical therapist and Board Certified Orthopedic Clinical Specialist based in Chicago. My treatment philosophy centers around a holistic approach that empowers patients to achieve their rehabilitation goals and embrace an active lifestyle beyond recovery.</p>
                         
                         <p>I believe rehabilitation should integrate seamlessly into your life, allowing you to maintain normal routines while we work together. My passion for strength and conditioning enriches the care I provide to athletes and active individuals motivated to push their limits.</p>
@@ -178,38 +215,43 @@
         </section>
 
         <!-- Values Section -->
-        <section class="values-section">
+        <section class="values-section" style="padding: 80px 0; border-top: 1px solid var(--border-color); margin-top: 40px;">
             <div class="container">
-                <h2 class="section-heading">My Values</h2>
+                <div class="section-header-left" style="margin-bottom: 40px;">
+                    <h2 style="font-size: 36px;">My Values</h2>
+                </div>
+                
                 <div class="values-grid">
                     <div class="card">
                         <h3>Relentless Drive</h3>
-                        <p class="subtext">My relentless drive fuels my commitment to excellence, empowering patients to overcome challenges and achieve their goals. I continuously seek new knowledge and innovative techniques to enhance both patient care and my professional growth.</p>
+                        <p class="subtext" style="color: var(--text-secondary);">My relentless drive fuels my commitment to excellence, empowering patients to overcome challenges and achieve their goals. I continuously seek new knowledge and innovative techniques to enhance both patient care and my professional growth.</p>
                     </div>
                     <div class="card">
                         <h3>Growth Mindset</h3>
-                        <p class="subtext">I embrace a growth mindset, viewing challenges as opportunities for learning and improvement. I encourage patients and mentees to develop resilience and adaptability, helping them realize their full potential.</p>
+                        <p class="subtext" style="color: var(--text-secondary);">I embrace a growth mindset, viewing challenges as opportunities for learning and improvement. I encourage patients and mentees to develop resilience and adaptability, helping them realize their full potential.</p>
                     </div>
                     <div class="card">
                         <h3>Intentionality</h3>
-                        <p class="subtext">Intentionality guides my practice, ensuring every interaction is purpose-driven. By aligning care with each patient's unique goals, I create a supportive environment for thriving and skill development.</p>
+                        <p class="subtext" style="color: var(--text-secondary);">Intentionality guides my practice, ensuring every interaction is purpose-driven. By aligning care with each patient's unique goals, I create a supportive environment for thriving and skill development.</p>
                     </div>
                     <div class="card">
                         <h3>Nuance</h3>
-                        <p class="subtext">Understanding nuance is vital in my approach. I recognize each patient's uniqueness and tailor treatment plans to their specific needs, fostering deeper connections and better outcomes.</p>
+                        <p class="subtext" style="color: var(--text-secondary);">Understanding nuance is vital in my approach. I recognize each patient's uniqueness and tailor treatment plans to their specific needs, fostering deeper connections and better outcomes.</p>
                     </div>
-                    <div class="card" style="grid-column: span 1;">
+                    
+                    <!-- 5th Card spanning full width -->
+                    <div class="card value-card-wide">
                         <h3>Patient Advocacy</h3>
-                        <p class="subtext">I am a passionate advocate for my patients, empowering them throughout their rehabilitation journey. I strive to ensure their voices are heard and their preferences respected, creating a collaborative and trusting environment.</p>
+                        <p class="subtext" style="color: var(--text-secondary);">I am a passionate advocate for my patients, empowering them throughout their rehabilitation journey. I strive to ensure their voices are heard and their preferences respected, creating a collaborative and trusting environment.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Professional Journey Section -->
-        <section class="journey-section">
+        <section class="journey-section" style="padding: 80px 0; border-top: 1px solid var(--border-color);">
             <div class="container">
-                <h2>Professional Journey</h2>
+                <h2 style="font-size: 36px;">Professional Journey</h2>
                 <div class="timeline">
                     <div class="timeline-item">
                         <div class="timeline-text">Board Certified Orthopedic Clinical Specialist (OCS)</div>
@@ -233,13 +275,13 @@
 
                 <!-- Beyond the Clinic -->
                 <div class="beyond-section">
-                    <h3>Beyond the Clinic</h3>
-                    <p class="subtext" style="margin-top: 10px;">When I'm not working with patients or mentoring clinicians, you'll find me:</p>
+                    <h3 style="font-size: 24px; margin-bottom: 8px;">Beyond the Clinic</h3>
+                    <p style="color: var(--text-secondary);">When I'm not working with patients or mentoring clinicians, you'll find me:</p>
                     <ul class="beyond-list">
                         <li>Training at the gym</li>
                         <li>Exploring Chicago's food and coffee scene</li>
                         <li>Discovering new music</li>
-                        <li>Reading (current favorites on my /now page)</li>
+                        <li>Reading (current favorites on my <a href="now.html" style="color: var(--accent-maroon); text-decoration: underline;">/now page</a>)</li>
                     </ul>
                 </div>
             </div>
@@ -258,8 +300,8 @@
                 <div class="footer-nav">
                     <div class="footer-col">
                         <h4>Explore</h4>
-                        <a href="#">Now</a>
-                        <a href="#">Manifesto</a>
+                        <a href="now.html">Now</a>
+                        <a href="manifesto.html">Manifesto</a>
                         <a href="contact.html">Contact</a>
                     </div>
                     <div class="footer-col">
@@ -276,8 +318,28 @@
         </div>
     </footer>
 
+    <!-- Scripts -->
     <script>
-        lucide.createIcons();
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+            initMobileMenu();
+        });
+
+        // Mobile Menu Logic
+        function initMobileMenu() {
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const navLinks = document.getElementById('navLinks');
+            
+            if (mobileMenuBtn && navLinks) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    navLinks.classList.toggle('active');
+                    
+                    const iconName = navLinks.classList.contains('active') ? 'x' : 'menu';
+                    mobileMenuBtn.innerHTML = `<i data-lucide="${iconName}"></i>`;
+                    lucide.createIcons();
+                });
+            }
+        }
     </script>
 </body>
 </html>
