@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manifesto | Albin Mutholam, PT, DPT, OCS</title>
+    <title>Now | Albin Mutholam, PT, DPT, OCS</title>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,60 +17,56 @@
     <script src="https://unpkg.com/lucide@latest" defer></script>
 
     <style>
-        /* Manifesto Page Specific Layout */
-        .manifesto-container {
+        /* Now Page Specific Layout */
+        .now-container {
             max-width: 800px;
             margin: 0 auto;
-            padding-bottom: 120px;
         }
 
-        .manifesto-intro {
-            margin-bottom: 80px;
+        .now-intro {
+            margin-bottom: 48px;
         }
 
-        .manifesto-intro h1 {
-            margin-bottom: 16px;
+        .now-intro h1 {
+            margin-bottom: 12px;
         }
 
-        .manifesto-intro p {
-            font-size: 24px;
+        .last-updated {
+            display: block;
+            margin-top: 12px;
             color: var(--text-secondary);
-            font-family: var(--font-headings);
+            font-style: italic;
+            font-size: 14px;
         }
 
-        .manifesto-section {
-            margin-bottom: 80px;
+        .now-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 32px;
+            margin-bottom: 32px;
         }
 
-        .manifesto-section h2 {
-            margin-top: 40px;
-            margin-bottom: 24px;
-            font-size: 32px;
-            color: var(--text-primary);
-        }
-
-        .manifesto-section p {
-            margin-bottom: 24px;
-            font-size: 18px;
-            line-height: 1.7;
-            color: var(--text-primary);
+        .now-card h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 12px;
         }
 
         /* Maroon Bullets */
-        .manifesto-list {
+        .now-list {
             list-style: none;
-            margin-bottom: 24px;
         }
 
-        .manifesto-list li {
+        .now-list li {
             position: relative;
-            padding-left: 32px;
-            margin-bottom: 16px;
-            color: var(--text-secondary);
-            font-size: 18px;
+            padding-left: 24px;
+            margin-bottom: 12px;
+            color: var(--text-primary);
         }
 
-        .manifesto-list li::before {
+        .now-list li::before {
             content: "";
             position: absolute;
             left: 0;
@@ -81,32 +77,47 @@
             border-radius: 50%;
         }
 
-        .closing-section {
-            margin-top: 100px;
-            padding-top: 60px;
-            border-top: 1px solid var(--border-color);
-            text-align: center;
+        /* Semantic Key-Value Pair Styling */
+        .now-dl {
+            margin: 0;
         }
 
-        .closing-section p {
-            font-style: italic;
-            font-size: 20px;
+        .kv-pair {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .kv-key {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin: 0;
+        }
+
+        .placeholder {
             color: var(--text-secondary);
-            margin-bottom: 40px;
+            margin: 0;
         }
 
-        .closing-section h3 {
-            margin-bottom: 24px;
-            font-family: var(--font-body);
-            font-size: 22px;
+        .now-footer-note {
+            text-align: center;
+            margin-top: 48px;
+            color: var(--text-secondary);
+            font-size: 15px;
         }
 
-        @media (max-width: 768px) {
-            .manifesto-section h2 {
-                font-size: 28px;
+        .now-footer-note a {
+            color: var(--accent-maroon);
+            font-weight: 600;
+        }
+
+        @media (max-width: 640px) {
+            .now-card {
+                padding: 24px;
             }
-            .manifesto-intro p {
-                font-size: 20px;
+            .kv-pair {
+                flex-direction: column;
+                gap: 4px;
             }
         }
     </style>
@@ -137,67 +148,85 @@
 
     <main>
         <section style="padding-top: 60px;">
-            <div class="container manifesto-container">
+            <div class="container now-container">
                 <!-- Intro -->
-                <div class="manifesto-intro">
-                    <h1>Manifesto</h1>
-                    <p>Why I practice the way I do.</p>
+                <div class="now-intro">
+                    <h1>Now</h1>
+                    <p>What I'm focused on right now. Inspired by Derek Sivers' /now page.</p>
+                    <span class="last-updated">Last updated: February 2026</span>
                 </div>
 
-                <!-- Section 1: AI -->
-                <article class="manifesto-section">
-                    <h2>Why AI Matters in Clinical Practice</h2>
-                    <p>"AI won't replace physical therapists—but physical therapists who use AI will replace those who don't."</p>
-                    <p>I believe in using technology to:</p>
-                    <ul class="manifesto-list">
-                        <li>Reduce administrative burden (documentation, scheduling)</li>
-                        <li>Enhance patient education (personalized explanations, visual aids)</li>
-                        <li>Improve clinical reasoning (differential diagnosis support, literature synthesis)</li>
+                <!-- Section 1: Clinical Focus -->
+                <div class="now-card">
+                    <h2>Current Clinical Focus</h2>
+                    <ul class="now-list">
+                        <li>Complex knee rehabilitation post-ACL reconstruction</li>
+                        <li>Integrating AI tools into patient education materials</li>
+                        <li>Research collaboration on cartilage repair outcomes</li>
                     </ul>
-                    <p>The human element—assessment, touch, empathy, clinical judgment—remains irreplaceable.</p>
-                </article>
+                </div>
 
-                <!-- Section 2: Mentorship -->
-                <article class="manifesto-section">
-                    <h2>On Mentoring the Next Generation</h2>
-                    <p>New grads enter the field with knowledge but often lack systems. I focus on:</p>
-                    <ul class="manifesto-list">
-                        <li>Building clinical reasoning frameworks</li>
-                        <li>Developing confidence through structured mentorship</li>
-                        <li>Teaching intentionality in patient care</li>
+                <!-- Section 2: Availability -->
+                <div class="now-card">
+                    <h2>Availability</h2>
+                    <dl class="now-dl">
+                        <div class="kv-pair">
+                            <dt class="kv-key">Currently accepting new patients:</dt>
+                            <dd class="placeholder">Limited</dd>
+                        </div>
+                        <div class="kv-pair">
+                            <dt class="kv-key">Mentorship calls:</dt>
+                            <dd class="placeholder">Available</dd>
+                        </div>
+                        <div class="kv-pair">
+                            <dt class="kv-key">Next availability:</dt>
+                            <dd class="placeholder">Contact for scheduling</dd>
+                        </div>
+                    </dl>
+                </div>
+
+                <!-- Section 3: Learning -->
+                <div class="now-card">
+                    <h2>What I'm Learning</h2>
+                    <ul class="now-list">
+                        <li class="placeholder">Advanced prompting techniques for clinical AI applications</li>
+                        <li class="placeholder">Latest research on blood flow restriction training</li>
+                        <li class="placeholder">Systems thinking frameworks</li>
                     </ul>
-                    <p>Growth mindset isn't optional—it's foundational.</p>
-                </article>
+                </div>
 
-                <!-- Section 3: Knee Care -->
-                <article class="manifesto-section">
-                    <h2>Approach to Complex Knee Rehabilitation</h2>
-                    <p>Post-operative knee rehab isn't linear. It requires:</p>
-                    <ul class="manifesto-list">
-                        <li>Nuanced understanding of tissue healing</li>
-                        <li>Individualized progression based on patient response</li>
-                        <li>Integration of strength, movement quality, and psychological readiness</li>
+                <!-- Section 4: Reading/Listening -->
+                <div class="now-card">
+                    <h2>Reading & Listening</h2>
+                    <dl class="now-dl">
+                        <div class="kv-pair">
+                            <dt class="kv-key">Currently reading:</dt>
+                            <dd class="placeholder">Deep Work by Cal Newport</dd>
+                        </div>
+                        <div class="kv-pair">
+                            <dt class="kv-key">Podcast favorite:</dt>
+                            <dd class="placeholder">The Drive with Peter Attia</dd>
+                        </div>
+                        <div class="kv-pair">
+                            <dt class="kv-key">Recent article:</dt>
+                            <dd class="placeholder">Journal of Orthopaedic & Sports Physical Therapy (JOSPT) - Recent ACL Guidelines</dd>
+                        </div>
+                    </dl>
+                </div>
+
+                <!-- Section 5: Projects -->
+                <div class="now-card">
+                    <h2>Current Projects</h2>
+                    <ul class="now-list">
+                        <li class="placeholder">Building AI-augmented documentation system</li>
+                        <li class="placeholder">Developing mentorship curriculum for new grads</li>
+                        <li class="placeholder">Writing series on complex knee rehabilitation</li>
                     </ul>
-                    <p>Every athlete is different. Every recovery is different.</p>
-                </article>
+                </div>
 
-                <!-- Section 4: Intentionality -->
-                <article class="manifesto-section">
-                    <h2>Intentional Practice</h2>
-                    <p>Every session should have purpose. Every exercise should have rationale.</p>
-                    <p>I design treatment plans that:</p>
-                    <ul class="manifesto-list">
-                        <li>Align with patient goals (not generic protocols)</li>
-                        <li>Integrate seamlessly into daily life</li>
-                        <li>Build long-term resilience beyond initial recovery</li>
-                    </ul>
-                </article>
-
-                <!-- Closing -->
-                <div class="closing-section">
-                    <p>This philosophy guides every patient interaction, every mentorship session, and every clinical decision I make.</p>
-                    <h3>Ready to work together?</h3>
-                    <a href="book.html" class="btn btn-maroon">Book a Session</a>
+                <!-- Footer Note -->
+                <div class="now-footer-note">
+                    <p>This page is updated regularly. Want to work together? <a href="book.html">Book a session.</a></p>
                 </div>
             </div>
         </section>
