@@ -13,8 +13,8 @@
     <!-- Global Stylesheet -->
     <link rel="stylesheet" href="style.css">
 
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Lucide Icons (Deferred for performance) -->
+    <script src="https://unpkg.com/lucide@latest" defer></script>
 
     <style>
         /* Now Page Specific Layout */
@@ -77,7 +77,11 @@
             border-radius: 50%;
         }
 
-        /* Key-Value Pair Styling */
+        /* Semantic Key-Value Pair Styling */
+        .now-dl {
+            margin: 0;
+        }
+
         .kv-pair {
             display: flex;
             gap: 12px;
@@ -87,11 +91,12 @@
         .kv-key {
             font-weight: 600;
             color: var(--text-primary);
+            margin: 0;
         }
 
-        /* Placeholder Styling */
         .placeholder {
             color: var(--text-secondary);
+            margin: 0;
         }
 
         .now-footer-note {
@@ -119,23 +124,30 @@
 </head>
 <body>
 
-    <!-- Header -->
+    <!-- Header (Updated with Mobile Menu) -->
     <header>
         <div class="container nav-container">
             <a href="index.html" class="logo">Albin Mutholam, PT, DPT, OCS</a>
-            <nav class="nav-links">
+            
+            <!-- Mobile Menu Toggle Button -->
+            <button class="mobile-menu-btn" aria-label="Toggle navigation" id="mobileMenuBtn">
+                <i data-lucide="menu"></i>
+            </button>
+
+            <nav class="nav-links" id="navLinks">
                 <a href="index.html">Home</a>
                 <a href="about.html">About</a>
                 <a href="services.html">Services</a>
                 <a href="writing.html">Writing</a>
                 <a href="resources.html">Resources</a>
+                <a href="book.html" class="btn btn-maroon mobile-only-btn">Book Session</a>
             </nav>
-            <a href="book.html" class="btn btn-maroon">Book Session</a>
+            <a href="book.html" class="btn btn-maroon desktop-only-btn">Book Session</a>
         </div>
     </header>
 
     <main>
-        <section>
+        <section style="padding-top: 60px;">
             <div class="container now-container">
                 <!-- Intro -->
                 <div class="now-intro">
@@ -157,18 +169,20 @@
                 <!-- Section 2: Availability -->
                 <div class="now-card">
                     <h2>Availability</h2>
-                    <div class="kv-pair">
-                        <span class="kv-key">Currently accepting new patients:</span>
-                        <span class="placeholder">Limited</span>
-                    </div>
-                    <div class="kv-pair">
-                        <span class="kv-key">Mentorship calls:</span>
-                        <span class="placeholder">Available</span>
-                    </div>
-                    <div class="kv-pair">
-                        <span class="kv-key">Next availability:</span>
-                        <span class="placeholder">Contact for scheduling</span>
-                    </div>
+                    <dl class="now-dl">
+                        <div class="kv-pair">
+                            <dt class="kv-key">Currently accepting new patients:</dt>
+                            <dd class="placeholder">Limited</dd>
+                        </div>
+                        <div class="kv-pair">
+                            <dt class="kv-key">Mentorship calls:</dt>
+                            <dd class="placeholder">Available</dd>
+                        </div>
+                        <div class="kv-pair">
+                            <dt class="kv-key">Next availability:</dt>
+                            <dd class="placeholder">Contact for scheduling</dd>
+                        </div>
+                    </dl>
                 </div>
 
                 <!-- Section 3: Learning -->
@@ -184,18 +198,20 @@
                 <!-- Section 4: Reading/Listening -->
                 <div class="now-card">
                     <h2>Reading & Listening</h2>
-                    <div class="kv-pair">
-                        <span class="kv-key">Currently reading:</span>
-                        <span class="placeholder">Deep Work by Cal Newport</span>
-                    </div>
-                    <div class="kv-pair">
-                        <span class="kv-key">Podcast favorite:</span>
-                        <span class="placeholder">The Drive with Peter Attia</span>
-                    </div>
-                    <div class="kv-pair">
-                        <span class="kv-key">Recent article:</span>
-                        <span class="placeholder">Journal of Orthopaedic & Sports Physical Therapy (JOSPT) - Recent ACL Guidelines</span>
-                    </div>
+                    <dl class="now-dl">
+                        <div class="kv-pair">
+                            <dt class="kv-key">Currently reading:</dt>
+                            <dd class="placeholder">Deep Work by Cal Newport</dd>
+                        </div>
+                        <div class="kv-pair">
+                            <dt class="kv-key">Podcast favorite:</dt>
+                            <dd class="placeholder">The Drive with Peter Attia</dd>
+                        </div>
+                        <div class="kv-pair">
+                            <dt class="kv-key">Recent article:</dt>
+                            <dd class="placeholder">Journal of Orthopaedic & Sports Physical Therapy (JOSPT) - Recent ACL Guidelines</dd>
+                        </div>
+                    </dl>
                 </div>
 
                 <!-- Section 5: Projects -->
@@ -228,7 +244,7 @@
                     <div class="footer-col">
                         <h4>Explore</h4>
                         <a href="now.html">Now</a>
-                        <a href="#">Manifesto</a>
+                        <a href="manifesto.html">Manifesto</a>
                         <a href="contact.html">Contact</a>
                     </div>
                     <div class="footer-col">
@@ -245,8 +261,28 @@
         </div>
     </footer>
 
+    <!-- Scripts -->
     <script>
-        lucide.createIcons();
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+            initMobileMenu();
+        });
+
+        // Mobile Menu Logic
+        function initMobileMenu() {
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const navLinks = document.getElementById('navLinks');
+            
+            if (mobileMenuBtn && navLinks) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    navLinks.classList.toggle('active');
+                    
+                    const iconName = navLinks.classList.contains('active') ? 'x' : 'menu';
+                    mobileMenuBtn.innerHTML = `<i data-lucide="${iconName}"></i>`;
+                    lucide.createIcons();
+                });
+            }
+        }
     </script>
 </body>
 </html>
