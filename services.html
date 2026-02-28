@@ -13,13 +13,14 @@
     <!-- Stylesheet -->
     <link rel="stylesheet" href="style.css">
 
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Lucide Icons (Deferred for performance) -->
+    <script src="https://unpkg.com/lucide@latest" defer></script>
 
     <style>
         /* Page-specific overrides for Services */
         .services-intro {
             padding-bottom: 40px;
+            padding-top: 60px;
         }
 
         .services-intro h1 {
@@ -115,18 +116,28 @@
 </head>
 <body>
 
-    <!-- Header -->
+    <!-- Header (Updated with Mobile Menu) -->
     <header>
         <div class="container nav-container">
             <a href="index.html" class="logo">Albin Mutholam, PT, DPT, OCS</a>
-            <nav class="nav-links">
+            
+            <!-- Mobile Menu Toggle Button -->
+            <button class="mobile-menu-btn" aria-label="Toggle navigation" id="mobileMenuBtn">
+                <i data-lucide="menu"></i>
+            </button>
+
+            <nav class="nav-links" id="navLinks">
                 <a href="index.html">Home</a>
                 <a href="about.html">About</a>
-                <a href="services.html" class="active">Services</a>
+                <a href="services.html" class="active" aria-current="page">Services</a>
                 <a href="writing.html">Writing</a>
                 <a href="resources.html">Resources</a>
+                <!-- Mobile-only CTA (shows inside dropdown) -->
+                <a href="book.html" class="btn btn-maroon mobile-only-btn">Book Session</a>
             </nav>
-            <a href="book.html" class="btn btn-maroon">Book Session</a>
+            
+            <!-- Desktop-only CTA -->
+            <a href="book.html" class="btn btn-maroon desktop-only-btn">Book Session</a>
         </div>
     </header>
 
@@ -135,7 +146,7 @@
         <section class="services-intro">
             <div class="container">
                 <h1>Services</h1>
-                <p class="subheading" style="color: var(--text-secondary); max-width: 700px;">I work with patients seeking recovery and clinicians seeking growth. All sessions are 30 minutes by default and can be booked directly.</p>
+                <p class="subheading" style="color: var(--text-secondary); max-width: 700px; font-size: 20px;">I work with patients seeking recovery and clinicians seeking growth. All sessions are 30 minutes by default and can be booked directly.</p>
             </div>
         </section>
 
@@ -239,8 +250,8 @@
                 <div class="footer-nav">
                     <div class="footer-col">
                         <h4>Explore</h4>
-                        <a href="#">Now</a>
-                        <a href="#">Manifesto</a>
+                        <a href="now.html">Now</a>
+                        <a href="manifesto.html">Manifesto</a>
                         <a href="contact.html">Contact</a>
                     </div>
                     <div class="footer-col">
@@ -257,8 +268,28 @@
         </div>
     </footer>
 
+    <!-- Scripts -->
     <script>
-        lucide.createIcons();
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+            initMobileMenu();
+        });
+
+        // Mobile Menu Logic
+        function initMobileMenu() {
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const navLinks = document.getElementById('navLinks');
+            
+            if (mobileMenuBtn && navLinks) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    navLinks.classList.toggle('active');
+                    
+                    const iconName = navLinks.classList.contains('active') ? 'x' : 'menu';
+                    mobileMenuBtn.innerHTML = `<i data-lucide="${iconName}"></i>`;
+                    lucide.createIcons();
+                });
+            }
+        }
     </script>
 </body>
 </html>
