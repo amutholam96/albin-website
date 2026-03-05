@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ACL Surgery Recovery Checklist | Albin Mutholam, DPT</title>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    /* ── BRAND TOKENS ─────────────────────────────────────── */
+    :root {
+      --bg-color:        #0a0a0a;
+      --card-bg:         #1a1a1a;
+      --card-bg-hover:   #1f1f1f;
+      --dark:            #141414;
+      --border-color:    #2a2a2a;
+      --border-hover:    #3a3a3a;
+      --text-primary:    #f5f5f5;
+      --text-secondary:  #a3a3a3;
+      --text-muted:      #666;
+      --accent-maroon:   #dc2626;
+      --accent-maroon-dim: rgba(220, 38, 38, 0.10);
+      --accent-maroon-mid: rgba(220, 38, 38, 0.28);
+      --accent-blue:     #0ea5e9;
+      --accent-blue-dim: rgba(14, 165, 233, 0.10);
+      --accent-blue-mid: rgba(14, 165, 233, 0.28);
+      --font-headings:   'Crimson Pro', serif;
+      --font-body:       'Inter', sans-serif;
+      --radius:          8px;
+      --radius-sm:       4px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg-color);
+      color: var(--text-primary);
+      font-family: var(--font-body);
+      font-weight: 300;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── HEADER ───────────────────────────────────────────── */
+    header {
+      background: var(--card-bg);
+      border-bottom: 1px solid var(--border-color);
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(12px);
+    }
+
+    .logo {
+      font-family: var(--font-headings);
+      font-size: 22px;
+      font-weight: 700;
+      font-style: italic;
+      letter-spacing: 0.04em;
+      color: var(--text-primary);
+      text-decoration: none;
+    }
+    .logo span { color: var(--accent-maroon); }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .badge {
+      font-family: var(--font-body);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      background: var(--dark);
+      border: 1px solid var(--border-color);
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+    }
+
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #fff;
+      background: var(--accent-maroon);
+      border: none;
+      padding: 8px 16px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: opacity 0.15s, box-shadow 0.15s;
+      text-decoration: none;
+    }
+    .download-btn:hover {
+      opacity: 0.88;
+      box-shadow: 0 0 16px rgba(220, 38, 38, 0.35);
+    }
+
+    /* ── HERO ─────────────────────────────────────────────── */
+    .hero {
+      padding: 80px 40px 56px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent-maroon);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .eyebrow::before {
+      content: '';
+      display: block;
+      width: 28px;
+      height: 1.5px;
+      background: var(--accent-maroon);
+      border-radius: 1px;
+    }
+
+    h1 {
+      font-family: var(--font-headings);
+      font-size: clamp(48px, 7.5vw, 82px);
+      font-weight: 700;
+      line-height: 1.0;
+      letter-spacing: -0.01em;
+      color: var(--text-primary);
+      margin-bottom: 24px;
+    }
+    h1 em {
+      color: var(--accent-maroon);
+      font-style: italic;
+    }
+
+    .hero-sub {
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--text-secondary);
+      max-width: 560px;
+      line-height: 1.75;
+      margin-bottom: 32px;
+    }
+
+    .hero-meta {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .meta-item {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .meta-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--accent-maroon);
+      flex-shrink: 0;
+    }
+
+    /* ── SAVE BANNER ──────────────────────────────────────── */
+    .save-banner {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+    .save-banner-inner {
+      background: var(--accent-blue-dim);
+      border: 1px solid var(--accent-blue-mid);
+      border-radius: var(--radius);
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+    .save-banner-icon { font-size: 18px; flex-shrink: 0; }
+    .save-banner-text {
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--text-secondary);
+      flex: 1;
+    }
+    .save-banner-text strong { color: var(--accent-blue); font-weight: 600; }
+    .clear-btn {
+      font-family: var(--font-body);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      background: none;
+      border: 1px solid var(--border-color);
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: color 0.15s, border-color 0.15s;
+      flex-shrink: 0;
+    }
+    .clear-btn:hover { color: var(--text-secondary); border-color: var(--border-hover); }
+
+    /* ── DIVIDER ──────────────────────────────────────────── */
+    .rule {
+      border: none;
+      border-top: 1px solid var(--border-color);
+      margin: 0;
+    }
+
+    /* ── PROGRESS ─────────────────────────────────────────── */
+    .progress-bar-wrap {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 32px 40px 0;
+    }
+    .progress-label {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .progress-label-text {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .progress-count {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--accent-maroon);
+      font-variant-numeric: tabular-nums;
+    }
+    .progress-track {
+      height: 3px;
+      background: var(--border-color);
+      border-radius: 2px;
+      overflow: hidden;
+      margin-bottom: 40px;
+    }
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--accent-maroon), #ef4444);
+      border-radius: 2px;
+      transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      width: 0%;
+    }
+
+    /* ── GRID ─────────────────────────────────────────────── */
+    .grid {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 40px 80px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    /* ── SECTION ──────────────────────────────────────────── */
+    .section {
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: border-color 0.2s;
+    }
+    .section:hover { border-color: var(--border-hover); }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 18px 24px;
+      cursor: pointer;
+      user-select: none;
+      background: var(--card-bg);
+      transition: background 0.15s;
+    }
+    .section-header:hover { background: var(--card-bg-hover); }
+    .section.open .section-header { background: #1d1d1d; }
+
+    .section-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--accent-maroon-dim);
+      border: 1px solid var(--accent-maroon-mid);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+
+    .section-title {
+      font-family: var(--font-headings);
+      font-size: 20px;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      color: var(--text-primary);
+      flex: 1;
+    }
+
+    .section-count {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--text-muted);
+      font-variant-numeric: tabular-nums;
+      min-width: 32px;
+      text-align: right;
+    }
+
+    .chevron {
+      color: var(--text-muted);
+      font-size: 11px;
+      transition: transform 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+      margin-left: 4px;
+    }
+    .section.open .chevron { transform: rotate(180deg); }
+
+    .section-body {
+      display: none;
+      padding: 0 24px 20px;
+      background: var(--dark);
+      border-top: 1px solid var(--border-color);
+      animation: slideDown 0.18s ease-out;
+    }
+    .section.open .section-body { display: block; }
+
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-4px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── ITEMS ────────────────────────────────────────────── */
+    .items { padding-top: 14px; }
+
+    .item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 11px 6px;
+      border-bottom: 1px solid #1c1c1c;
+      cursor: pointer;
+      border-radius: var(--radius-sm);
+      transition: background 0.1s;
+    }
+    .item:last-child { border-bottom: none; }
+    .item:hover { background: rgba(255,255,255,0.025); }
+
+    .check-box {
+      width: 19px;
+      height: 19px;
+      border: 1.5px solid var(--border-hover);
+      border-radius: 4px;
+      flex-shrink: 0;
+      margin-top: 1px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.15s;
+    }
+    .item.checked .check-box {
+      background: var(--accent-maroon);
+      border-color: var(--accent-maroon);
+      box-shadow: 0 0 10px rgba(220, 38, 38, 0.3);
+    }
+    .check-mark {
+      display: none;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      line-height: 1;
+    }
+    .item.checked .check-mark { display: block; }
+
+    .item-text {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      transition: color 0.15s;
+    }
+    .item.checked .item-text {
+      color: var(--text-muted);
+      text-decoration: line-through;
+      text-decoration-color: #3a3a3a;
+    }
+    .item-text strong {
+      color: var(--text-primary);
+      font-weight: 500;
+    }
+    .item.checked .item-text strong { color: var(--text-muted); }
+
+    /* ── PRO TIP ──────────────────────────────────────────── */
+    .pro-tip {
+      background: var(--accent-blue-dim);
+      border-left: 2px solid var(--accent-blue);
+      padding: 8px 12px;
+      margin-top: 8px;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      font-size: 12px;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--text-secondary);
+    }
+
+    /* ── RED FLAG SECTION ─────────────────────────────────── */
+    .redflag-section .section-icon {
+      background: rgba(220, 38, 38, 0.08);
+      border-color: rgba(220, 38, 38, 0.25);
+    }
+    .redflag-section .section-title { color: #f87171; }
+    .redflag-section .item-text strong { color: #fca5a5; }
+    .redflag-section .item.checked .check-box {
+      background: #991b1b;
+      border-color: #991b1b;
+    }
+
+    /* ── FOOTER ───────────────────────────────────────────── */
+    footer {
+      border-top: 1px solid var(--border-color);
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    .footer-brand {
+      font-family: var(--font-headings);
+      font-size: 22px;
+      font-weight: 700;
+      font-style: italic;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+    .footer-brand span { color: var(--accent-maroon); }
+    .footer-sub {
+      font-size: 12px;
+      font-weight: 300;
+      color: var(--text-muted);
+      max-width: 300px;
+      line-height: 1.65;
+    }
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: flex-end;
+    }
+    .footer-links a {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .footer-links a:hover { color: var(--accent-maroon); }
+
+    .disclaimer {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 40px 48px;
+    }
+    .disclaimer p {
+      font-size: 11px;
+      font-weight: 300;
+      color: #444;
+      line-height: 1.65;
+      border-top: 1px solid var(--border-color);
+      padding-top: 20px;
+    }
+
+    /* ── RESPONSIVE ───────────────────────────────────────── */
+    @media (max-width: 600px) {
+      header { padding: 16px 20px; }
+      .badge { display: none; }
+      .hero { padding: 48px 20px 40px; }
+      .save-banner { padding: 0 20px; }
+      .progress-bar-wrap { padding: 24px 20px 0; }
+      .grid { padding: 0 20px 60px; }
+      footer { padding: 32px 20px; flex-direction: column; }
+      .footer-links { align-items: flex-start; }
+      .disclaimer { padding: 0 20px 32px; }
+    }
+
+    /* ── PRINT ────────────────────────────────────────────── */
+    @media print {
+      header { position: static; background: #fff; border-bottom: 1px solid #ddd; }
+      body { background: #fff; color: #111; }
+      .save-banner, .download-btn, .clear-btn { display: none !important; }
+      .section-body { display: block !important; }
+      .section-header { background: #f8f8f8; cursor: default; }
+      .section { border: 1px solid #ddd; page-break-inside: avoid; }
+      .item-text, .item-text strong { color: #333 !important; text-decoration: none !important; }
+      .check-box { border-color: #999 !important; background: #fff !important; box-shadow: none !important; }
+      .check-mark { display: none !important; }
+      .section-title { color: #111; }
+      .progress-track, .progress-fill { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <a class="logo" href="#">Mutholam<span>.</span>Rehab</a>
+  <div class="header-right">
+    <span class="badge">Free Resource</span>
+    <button class="download-btn" onclick="downloadPage()">⬇ Save to Device</button>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="eyebrow">ACL Surgery Recovery</div>
+  <h1>Your Post-Op<br><em>Readiness</em><br>Checklist</h1>
+  <p class="hero-sub">
+    Everything you need to have — and know — before you come home from the hospital.
+    Built from patient community experience and clinical best practices.
+  </p>
+  <div class="hero-meta">
+    <span class="meta-item"><span class="meta-dot"></span>Albin Mutholam, DPT, OCS</span>
+    <span class="meta-item"><span class="meta-dot"></span>Complex Knee Program Director, MOR</span>
+    <span class="meta-item"><span class="meta-dot"></span>For Patients &amp; Caregivers</span>
+  </div>
+</div>
+
+<hr class="rule" />
+
+<!-- SAVE BANNER -->
+<div class="save-banner" style="padding-top: 24px;">
+  <div class="save-banner-inner">
+    <span class="save-banner-icon">💾</span>
+    <p class="save-banner-text">
+      <strong>Your progress saves automatically.</strong> Check items off as you prepare — this page remembers where you left off, even after closing your browser. Use the <em>Save to Device</em> button above to keep a copy offline.
+    </p>
+    <button class="clear-btn" onclick="clearProgress()">Reset</button>
+  </div>
+</div>
+
+<!-- PROGRESS -->
+<div class="progress-bar-wrap">
+  <div class="progress-label">
+    <span class="progress-label-text">Preparation Progress</span>
+    <span class="progress-count" id="progressLabel">0 / 0 items</span>
+  </div>
+  <div class="progress-track">
+    <div class="progress-fill" id="progressFill"></div>
+  </div>
+</div>
+
+<!-- CHECKLIST GRID -->
+<div class="grid">
+
+  <!-- COLD & COMPRESSION -->
+  <div class="section open" data-section id="s-cold">
+    <div class="section-header" onclick="toggleSection(this)">
+      <div class="section-icon">🧊</div>
+      <span class="section-title">Cold &amp; Compression Therapy</span>
+      <span class="section-count" data-count></span>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="section-body">
+      <div class="items">
+        <div class="item" onclick="toggleItem(this)">
+          <div class="check-box"><span class="check-mark">✓</span></div>
+          <div class="item-text"><strong>Cold therapy machine / cryo cuff</strong> — Game Ready, Breg Polar Care, or similar. Continuously circulates cold water through a knee cuff; some models add intermittent compression. Can often be rented through your surgical center.
+            <div class="pro-tip">💡 Ask your surgeon if they have a rental program before buying.</div>
+          </div>
+        </div>
+        <div class="item" onclick="toggleItem(this)">
+          <div class="check-box"><span class="check-mark">✓</span></div>
+          <div class="item-text"><strong>10–15 mini water bottles frozen</strong> — rotating backup supply for cold therapy machines when the reservoir runs low.</div>
+        </div>
+        <div class="item" onclick="toggleItem(this)">
+          <div class="check-box"><span class="check-mark">✓</span></div>
+          <div class="item-text"><strong>2–3 backup gel ice packs</strong> — for PT visits, car rides, and portability.</div>
+        </div>
+        <div class="item" onclick="toggleItem(this)">
+          <div class="check-box"><span class="check-mark">✓</span></div>
+          <div class="item-text"><strong>Compression stockings</strong> — helps reduce DVT risk in the early post-op period. Confirm with your surgeon.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- REST & ELEVATION -->
+  <div class="section" data-section id="s-rest">
+    <div class="section-header" onclick="toggleSection(this)">
+      <div class="section-icon">🛏️</div>
+      <span class="section-title">Rest &amp; Elevation Setup</span>
+      <span class="section-count" data-count></span>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="section-body">
+      <div class="items">
+        <div class="item" onclick="toggleItem(this)">
+          <div class="check-box"><span class="check-mark">✓</span></div>
+          <div class="item-text"><strong>Leg elevation wedge or pillow</strong> — prop your knee at least 12 inches above heart level for the first 3–5 days to control swelling.</div>
+        </div>
+        <div class="item" onclick="toggleItem(this)">
+          <div class="check-box"><span class="check-mark">✓</span></div>
+          <div class="item-text"><strong>Multiple bed &amp; couch pillows</strong> — for repositioning throughout the day. You will be moving more than you expect.</div>
+        </div>
+        <div class="item" onclick="toggleItem(this)">
+          <div class="check-box"><span class="check-mark">✓</span></div>
+          <div class="item-text"><strong>Sleep positioning note:</strong> keep the knee elevated but <em>avoid bending it</em> — place a pillow under your heel or calf, not directly under the knee joint.
+            <div class="pro-tip">💡 Many patients find sleeping in a recliner the first 1–2 nights more comfortable than a bed.</div>
+          </div>
+        </div>
+        <div class="item" onclick="toggleItem(this)">
+          <div class="check-box"><span class="check-mark">✓</span></div>
+          <div class="item-text"><strong>Lap tray or bedside table</strong> — for eating, using a laptop, or keeping meds within reach without having to get up.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MOBILITY AIDS -->
+  <div class="section" data-section id="s-mobility">
+    <div class="section-header" onclick="toggleSection(this)">
+      <div class="section-icon">🚶</div>
+      <span class="section-title">Mobility Aids</span>
+      <span class="section-count" data-count></span>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="section-body">
+      <div class="items">
+        <div class="item" onclick="toggleItem(this)">
+          <div class="check-box"><span class="check-mark">✓</span></div>
+          <div class="item-text"><strong>Crutches — properly fitted before surgery day.</strong> Practice using them before your operation. Know how to navigate stairs and curbs.</div>
+        </div>
+        <div class="item" onclick="toggleItem(this)">
+          <div class="check-box"><span class="check-mark">✓</span></div>
+          <div class="item-text"><strong>Post-op knee brace</strong> — wear it everywhere except during prescribed exercises and showering. Typically needed for 2–6 weeks depending on your surgeon's protocol.</div>
+        </div>
+        <div class="item" onclick="toggleItem(this)">
+          <div class="check-box"><span class="check-mark">✓</span></div>
+          <div class="item-text"><strong>Knee scooter (optional but highly recommended)</strong> — a widely loved tool in the ACL patient community for navigating the house without the fatigue of crutches.
+            <div class="pro-tip">💡 Many people rent one for 2–4 weeks. A huge quality-of-life upgrade over crutches indoors.</div>
+          </div>
+        </div>
+        <div class="item" onclick="toggleItem(this)">
+          <div class="check-box"><span class="check-mark">✓</span></div>
+          <div class="item-text"><strong>Small backpack or fanny pack</strong> — hands-free carrying while on crutches. One of the most consistent tips from ACL recovery communities. Carrying a water bottle or snack is otherwise nearly impossible.</div>
+        </div>
+        <div class="item" onclick="toggleItem(this)">
+          <div class="check-box"><span class="check-mark">✓</span></div>
+          <div class="item-text"><strong>Non-slip grip socks</strong> — reduces fall risk on hardwood or tile floors while on crutches.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BATHROOM & HYGIENE -->
+  <div class="section" data-section id="s-bath">
+    <div class="section-header" onclick="toggleSection(this)">
+      <div class="section-icon">🚿</div>
+      <span class="section-title">Bathroom &amp; Hygiene</span>
+      <span class="section-count" data-count></span>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="section-body">
+      <div class="items">
+        <div class="item" onclick="toggleItem(this)">
+          <div class="check-box"><span class="check-mark">✓</span></div>
+          <div class="item-text"><strong>Shower stool or chair</strong> — non-negotiable for the first 1–2 weeks. Standing in a shower on one leg is unsafe and exhausting.</div>
+        </div>
+        <div class="item" onclick="toggleItem(this)">
+          <div class="check-box"><span class="check-mark">✓</span></div>
+          <div class="item-text"><strong>Removable shower head</strong> — allows you to direct water without rotating the body.</div>
+        </div>
+        <div class="item" onclick="toggleItem(this)">
+          <div class="check-box"><span class="check-mark">✓</span></div>
+          <div class="item-text"><strong>Non-slip bath mat</strong> — place inside and outside the tub.</div>
+        </div>
+        <div class="item" onclick="toggleItem(this)">
+          <div class="check-box"><span class="check-mark">✓</span></div>
+          <div class="item-text"><strong>Toilet seat riser + grab bars</strong> — sitting down and standing up from a standard toilet height is harder than expected with a stiff, swollen knee.</div>
+        </div>
+        <div class="item" onclick="toggleItem(this)">
+          <div class="check-box"><span class="check-mark">✓</span></div>
+          <div class="item-text"><strong>Waterproof leg cover or large trash bag</strong> — to keep your incisions dry while showering. A standard kitchen trash bag secured above the knee works fine.</div>
+        </div>
+        <div class="item" onclick="toggleItem(this)">
+          <div class="check-box"><span class="check-mark">✓</span></div>
+          <div class="item-text"><strong>Dry shampoo and body wipes</strong> — for the first 48–72 hours before showering is permitted.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CLOTHING -->
+  <div class="section" data-section id="s-clothing">
+    <div class="section-header" onclick="toggleSection(this)">
+      <div class="section-icon">👕</div>
+      <span class="section-title">Clothing</span>
+      <span class="section-count" data-count></span>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="section-body">
+      <div class="items">
+        <div class="item" onclick="toggleItem(this)">
+          <div class="check-box"><span class="check-mark">✓</span></div>
+          <div class="item-text"><strong>Loose, wide-leg shorts and pants</strong> — pulling on fitted clothing without bending your knee or standing on one leg is much harder than it sounds. Stock enough for a week.</div>
+        </div>
+        <div class="item" onclick="toggleItem(this)">
+          <div class="check-box"><span class="check-mark">✓</span></div>
+          <div class="item-text"><strong>Tear-away or snap-side pants</strong> — especially useful if you're wearing a bulky post-op brace. These allow you to dress without removing the brace.</div>
+        </div>
+        <div class="item" onclick="toggleItem(this)">
+          <div class="check-box"><span class="check-mark">✓</span></div>
+          <div class="item-text"><strong>Slip-on shoes</strong> — no laces, no bending. Have a pair by every exit.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- NUTRITION & GI -->
+  <div class="section" data-section id="s-nutrition">
+    <div class="section-header" onclick="toggleSection(this)">
+      <div class="section-icon">🥗</div>
+      <span class="section-title">Nutrition &amp; Gut Health</span>
+      <span class="section-count" data-count></span>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="section-body">
+      <div class="items">
+        <div class="item" onclick="toggleItem(this)">
+          <div class="check-box"><span class="check-mark">✓</span></div>
+          <div class="item-text"><strong>High-fiber foods stocked ahead of time</strong> — pears, avocado, oat bran, chia seeds. Opioid pain medications cause constipation reliably. Target 25–30g of fiber per day starting from day 1.</div>
+        </div>
+        <div class="item" onclick="toggleItem(this)">
+          <div class="check-box"><span class="check-mark">✓</span></div>
+          <div class="item-text"><strong>Stool softener or fiber supplement on standby</strong> — Colace (docusate sodium) is commonly recommended post-op. Check with your surgeon.</div>
+        </div>
+        <div class="item" onclick="toggleItem(this)">
+          <div class="check-box"><span class="check-mark">✓</span></div>
+          <div class="item-text"><strong>High-protein meals prepped or accessible</strong> — chicken, eggs, Greek yogurt, protein shakes. Muscle recovery demands adequate protein, especially with quads that will be shutting down from arthrogenic inhibition.
+            <div class="pro-tip">💡 Aim for 1.6–2.2g of protein per kg of bodyweight during early recovery to minimize muscle loss.</div>
+          </div>
+        </div>
+        <div class="item" onclick="toggleItem(this)">
+          <div class="check-box"><span class="check-mark">✓</span></div>
+          <div class="item-text"><strong>Omega-3s, Vitamin C, Vitamin D, and Calcium</strong> — these micronutrients support tissue repair and bone healing. Talk to your surgeon or PT about supplementation.</div>
+        </div>
+        <div class="item" onclick="toggleItem(this)">
+          <div class="check-box"><span class="check-mark">✓</span></div>
+          <div class="item-text"><strong>Easy-grab snacks always within reach</strong> — never take pain medication on an empty stomach. Keep snacks on your recovery station at all times.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MEDICATIONS -->
+  <div class="section" data-section id="s-meds">
+    <div class="section-header" onclick="toggleSection(this)">
+      <div class="section-icon">💊</div>
+      <span class="section-title">Medications &amp; Wound Care</span>
+      <span class="section-count" data-count></span>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="section-body">
+      <div class="items">
+        <div class="item" onclick="toggleItem(this)">
+          <div class="check-box"><span class="check-mark">✓</span></div>
+          <div class="item-text"><strong>Prescription pain meds filled before surgery day</strong> — you will not want to stop at a pharmacy on the way home. Fill prescriptions 1–2 days ahead.</div>
+        </div>
+        <div class="item" onclick="toggleItem(this)">
+          <div class="check-box"><span class="check-mark">✓</span></div>
+          <div class="item-text"><strong>OTC backup: Tylenol and/or ibuprofen</strong> — many post-op protocols use scheduled Tylenol + ibuprofen alternating to reduce opioid reliance. Confirm dosing with your surgeon.</div>
+        </div>
+        <div class="item" onclick="toggleItem(this)">
+          <div class="check-box"><span class="check-mark">✓</span></div>
+          <div class="item-text"><strong>Wound care supplies</strong> — extra gauze, medical tape, and non-stick pads. Your surgical team will give instructions; having extras at home saves unnecessary stress.</div>
+        </div>
+        <div class="item" onclick="toggleItem(this)">
+          <div class="check-box"><span class="check-mark">✓</span></div>
+          <div class="item-text"><strong>Medication log or alarm</strong> — pain management works best on a schedule in the first 48–72 hours. Use your phone alarm or a written log to stay consistent.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HOME SETUP -->
+  <div class="section" data-section id="s-home">
+    <div class="section-header" onclick="toggleSection(this)">
+      <div class="section-icon">🏠</div>
+      <span class="section-title">Home Environment Setup</span>
+      <span class="section-count" data-count></span>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="section-body">
+      <div class="items">
+        <div class="item" onclick="toggleItem(this)">
+          <div class="check-box"><span class="check-mark">✓</span></div>
+          <div class="item-text"><strong>Dedicated recovery station</strong> — water bottle, phone charger, snacks, TV remote, meds, and ice all within arm's reach. You will be there a lot.</div>
+        </div>
+        <div class="item" onclick="toggleItem(this)">
+          <div class="check-box"><span class="check-mark">✓</span></div>
+          <div class="item-text"><strong>Remove tripping hazards</strong> — loose rugs, extension cords, pet toys. Do a walk-through before surgery day. Falls on crutches are a real risk.</div>
+        </div>
+        <div class="item" onclick="toggleItem(this)">
+          <div class="check-box"><span class="check-mark">✓</span></div>
+          <div class="item-text"><strong>Single-floor setup if possible</strong> — arrange to avoid stairs for week 1. If not possible, identify which bathroom is most accessible from your sleeping area.</div>
+        </div>
+        <div class="item" onclick="toggleItem(this)">
+          <div class="check-box"><span class="check-mark">✓</span></div>
+          <div class="item-text"><strong>Pet containment plan</strong> — dogs and cats are a tripping hazard on crutches and can bump into your knee. Have a plan before you get home.</div>
+        </div>
+        <div class="item" onclick="toggleItem(this)">
+          <div class="check-box"><span class="check-mark">✓</span></div>
+          <div class="item-text"><strong>Phone charger at knee height</strong> — reaching down to a floor-level outlet on one leg is a fall waiting to happen. Reposition or use an extension cord.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUPPORT & MENTAL -->
+  <div class="section" data-section id="s-support">
+    <div class="section-header" onclick="toggleSection(this)">
+      <div class="section-icon">🧠</div>
+      <span class="section-title">Support System &amp; Mental Prep</span>
+      <span class="section-count" data-count></span>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="section-body">
+      <div class="items">
+        <div class="item" onclick="toggleItem(this)">
+          <div class="check-box"><span class="check-mark">✓</span></div>
+          <div class="item-text"><strong>Map out your support team's availability</strong> — the first 1–2 weeks require help with cooking, changing, and bathing. Build a rotation so no one person is burned out.</div>
+        </div>
+        <div class="item" onclick="toggleItem(this)">
+          <div class="check-box"><span class="check-mark">✓</span></div>
+          <div class="item-text"><strong>Confirm your ride home and first-night caregiver</strong> — you cannot drive. Anesthesia + pain meds mean you will need someone overnight on day 1.</div>
+        </div>
+        <div class="item" onclick="toggleItem(this)">
+          <div class="check-box"><span class="check-mark">✓</span></div>
+          <div class="item-text"><strong>PT appointment scheduled within the first 1–2 weeks</strong> — do not wait. Early quad activation and swelling management are critical. The longer you wait, the more muscle you lose.</div>
+        </div>
+        <div class="item" onclick="toggleItem(this)">
+          <div class="check-box"><span class="check-mark">✓</span></div>
+          <div class="item-text"><strong>Entertainment loaded and ready</strong> — you will be on the couch for 1–2 weeks. Queue up audiobooks, shows, podcasts, and games before surgery day.</div>
+        </div>
+        <div class="item" onclick="toggleItem(this)">
+          <div class="check-box"><span class="check-mark">✓</span></div>
+          <div class="item-text"><strong>Know that kinesiophobia (fear of re-injury) is real and common</strong> — trust your PT's clearance criteria. Anxiety and avoidance can slow your return to sport more than the physical tissue itself.
+            <div class="pro-tip">💡 Talk to your PT about the mental side of rehab early. It matters just as much as the physical work.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RED FLAGS -->
+  <div class="section redflag-section" data-section id="s-redflags">
+    <div class="section-header" onclick="toggleSection(this)">
+      <div class="section-icon">🚨</div>
+      <span class="section-title">Red Flags — When to Call Your Surgeon</span>
+      <span class="section-count" data-count></span>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="section-body">
+      <div class="items">
+        <div class="item" onclick="toggleItem(this)">
+          <div class="check-box"><span class="check-mark">✓</span></div>
+          <div class="item-text"><strong>Calf pain, redness, or swelling</strong> — especially if localized and acute. This is a potential sign of DVT (blood clot). Call your surgeon or go to urgent care immediately.</div>
+        </div>
+        <div class="item" onclick="toggleItem(this)">
+          <div class="check-box"><span class="check-mark">✓</span></div>
+          <div class="item-text"><strong>Fever above 101°F (38.3°C)</strong> — possible sign of infection. Do not wait to see if it passes.</div>
+        </div>
+        <div class="item" onclick="toggleItem(this)">
+          <div class="check-box"><span class="check-mark">✓</span></div>
+          <div class="item-text"><strong>Incision drainage, significant redness, or warmth</strong> — some drainage and bruising is normal. A change in color, smell, or amount warrants a call.</div>
+        </div>
+        <div class="item" onclick="toggleItem(this)">
+          <div class="check-box"><span class="check-mark">✓</span></div>
+          <div class="item-text"><strong>Worsening rather than improving pain after day 3</strong> — gradual decline in pain is expected. Worsening pain after the initial 2–3 days should be assessed.</div>
+        </div>
+        <div class="item" onclick="toggleItem(this)">
+          <div class="check-box"><span class="check-mark">✓</span></div>
+          <div class="item-text"><strong>Inability to lift the leg at all (straight leg raise)</strong> — while quad weakness is expected, a complete inability to perform an SLR may indicate an extensor mechanism issue. Discuss with your PT at your first visit.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end grid -->
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-brand">Mutholam<span>.</span>Rehab</div>
+    <p class="footer-sub">Albin Mutholam, DPT, OCS — Complex Knee Program Director &amp; Orthopedic Residency Coordinator, Midwest Orthopaedics at Rush. Evidence-based rehab for athletes who refuse to stay stalled.</p>
+  </div>
+  <div class="footer-links">
+    <a href="https://instagram.com/mutholamrehab" target="_blank">@mutholamrehab</a>
+    <a href="https://linkedin.com/in/albinmutholam" target="_blank">LinkedIn</a>
+    <button class="download-btn" onclick="downloadPage()" style="margin-top:4px;">⬇ Save to Device</button>
+  </div>
+</footer>
+
+<div class="disclaimer">
+  <p>This checklist is intended for general educational purposes only and does not constitute medical advice. Recovery protocols vary depending on surgical technique, graft type, and individual patient factors. Always follow the specific instructions of your surgeon and physical therapist. If you have questions about your recovery, contact your clinical team directly.</p>
+</div>
+
+<script>
+  const STORAGE_KEY = 'mutholam_acl_checklist_v1';
+
+  // ── PERSISTENCE ─────────────────────────────────────────
+  function getItemId(item) {
+    // Generate a stable ID from the item's text content
+    const text = item.querySelector('.item-text').textContent.trim().slice(0, 60);
+    return text.replace(/\s+/g, '_').replace(/[^a-zA-Z0-9_]/g, '');
+  }
+
+  function saveProgress() {
+    const checked = {};
+    document.querySelectorAll('.item').forEach(item => {
+      checked[getItemId(item)] = item.classList.contains('checked');
+    });
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(checked)); } catch(e) {}
+  }
+
+  function loadProgress() {
+    try {
+      const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+      document.querySelectorAll('.item').forEach(item => {
+        if (saved[getItemId(item)]) item.classList.add('checked');
+      });
+    } catch(e) {}
+  }
+
+  function clearProgress() {
+    if (!confirm('Reset all checkboxes? This cannot be undone.')) return;
+    document.querySelectorAll('.item.checked').forEach(i => i.classList.remove('checked'));
+    try { localStorage.removeItem(STORAGE_KEY); } catch(e) {}
+    updateProgress();
+  }
+
+  // ── TOGGLE ───────────────────────────────────────────────
+  function toggleSection(header) {
+    header.closest('[data-section]').classList.toggle('open');
+    updateProgress();
+  }
+
+  function toggleItem(item) {
+    item.classList.toggle('checked');
+    saveProgress();
+    updateProgress();
+  }
+
+  // ── PROGRESS ─────────────────────────────────────────────
+  function updateCounts() {
+    document.querySelectorAll('[data-section]').forEach(section => {
+      const total   = section.querySelectorAll('.item').length;
+      const checked = section.querySelectorAll('.item.checked').length;
+      const el = section.querySelector('[data-count]');
+      if (el) el.textContent = checked === total
+        ? `✓ ${total}/${total}`
+        : `${checked}/${total}`;
+    });
+  }
+
+  function updateProgress() {
+    updateCounts();
+    const total   = document.querySelectorAll('.item').length;
+    const checked = document.querySelectorAll('.item.checked').length;
+    const pct = total ? (checked / total) * 100 : 0;
+    document.getElementById('progressFill').style.width = pct + '%';
+    document.getElementById('progressLabel').textContent = `${checked} / ${total} items`;
+  }
+
+  // ── DOWNLOAD ─────────────────────────────────────────────
+  function downloadPage() {
+    const html = document.documentElement.outerHTML;
+    const blob = new Blob([html], { type: 'text/html' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'ACL-Recovery-Checklist-MutholamRehab.html';
+    a.click();
+    URL.revokeObjectURL(a.href);
+  }
+
+  // ── INIT ─────────────────────────────────────────────────
+  loadProgress();
+  updateProgress();
+</script>
+</body>
+</html>
