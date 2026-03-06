@@ -8,7 +8,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@600;700&family=Inter:wght@400;600&family=Space+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
     
     <!-- Global Stylesheet -->
     <link rel="stylesheet" href="style.css">
@@ -17,97 +17,134 @@
     <script src="https://unpkg.com/lucide@latest" defer></script>
 
     <style>
-        /* Page-specific layouts not in global style.css */
-        .about-hero-grid {
-            display: grid;
-            grid-template-columns: 1fr 1.5fr;
-            gap: 60px;
-            align-items: start; /* CRITICAL: Allows sticky to work in CSS Grid */
+        /* Story Layout Styles */
+        .story-container {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 80px 24px 120px;
         }
 
-        .hero-image-container {
-            position: sticky;
-            top: 120px;
-        }
-
-        .headshot-img {
-            width: 100%;
-            max-width: 400px;
-            border-radius: 8px;
-            filter: grayscale(20%);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-        }
-
-        .bio-text p {
+        .eyebrow {
+            font-family: var(--font-body);
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--accent-maroon);
             margin-bottom: 24px;
-            color: var(--text-secondary);
-            font-size: 18px;
         }
 
-        /* Values Grid */
-        .values-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 24px;
-            margin-top: 40px;
-        }
-        
-        .values-grid .card h3 {
-            margin-bottom: 12px;
+        .story-headline {
+            font-family: var(--font-headings);
+            font-size: clamp(40px, 5vw, 64px);
+            font-weight: 700;
+            line-height: 1.1;
             color: var(--text-primary);
-        }
-        
-        /* Fixes the awkward empty hole for the 5th card */
-        .value-card-wide {
-            grid-column: 1 / -1; 
+            margin-bottom: 48px;
+            letter-spacing: -0.02em;
         }
 
-        /* Timeline Styles */
-        .timeline {
-            position: relative;
-            padding-left: 32px;
-            margin-top: 40px;
+        .story-headline em {
+            font-style: italic;
+            color: var(--accent-maroon);
         }
 
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 2px;
+        .story-divider {
+            width: 60px;
+            height: 3px;
             background: var(--accent-maroon);
+            margin-bottom: 48px;
+            border-radius: 2px;
         }
 
-        .timeline-item {
-            position: relative;
+        .story-text {
+            font-family: var(--font-body);
+            font-size: 20px;
+            font-weight: 400;
+            line-height: 1.85;
+            color: var(--text-secondary);
             margin-bottom: 32px;
         }
 
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -37px;
-            top: 6px;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: var(--accent-maroon);
-            border: 3px solid var(--bg-color);
-            transition: background 0.3s ease;
-        }
-
-        .timeline-item:hover::before {
-            background: var(--accent-blue);
-        }
-
-        .timeline-text {
+        .story-text strong {
+            color: var(--text-primary);
             font-weight: 600;
-            font-size: 18px;
+        }
+
+        .pull-quote {
+            border-left: 3px solid var(--accent-maroon);
+            padding: 32px 40px;
+            margin: 64px 0;
+            background: rgba(220, 38, 38, 0.05);
+            border-radius: 0 8px 8px 0;
+        }
+
+        .pull-quote p {
+            font-family: var(--font-headings);
+            font-size: clamp(24px, 3vw, 32px);
+            font-style: italic;
+            line-height: 1.5;
             color: var(--text-primary);
         }
 
-        /* Beyond the Clinic */
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            background: var(--border-color); /* Creates 1px internal borders */
+            margin: 80px 0;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden; /* Keeps borders inside radius */
+        }
+
+        .about-stat-cell {
+            background: var(--bg-color);
+            padding: 48px 24px;
+            text-align: center;
+            transition: background 0.3s ease;
+        }
+        
+        .about-stat-cell:hover {
+            background: var(--card-bg);
+        }
+
+        .about-stat-number {
+            font-family: var(--font-headings);
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--accent-maroon);
+            display: block;
+            margin-bottom: 8px;
+            line-height: 1;
+        }
+
+        .about-stat-label {
+            font-family: var(--font-body);
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+        }
+
+        .story-closing {
+            font-family: var(--font-body);
+            font-size: 20px;
+            font-weight: 400;
+            line-height: 1.9;
+            color: var(--text-secondary);
+            margin-top: 64px;
+            padding-top: 64px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .story-closing strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        /* Beyond the Clinic (Appended from previous version for personality) */
         .beyond-section {
             margin-top: 80px;
             padding: 40px;
@@ -138,28 +175,24 @@
             font-size: 20px;
         }
 
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .about-hero-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-            .hero-image-container {
-                position: static;
-                text-align: center;
-            }
-            .headshot-img {
-                max-width: 300px;
-            }
+        /* Fade-in Animation Classes */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.75s ease, transform 0.75s ease;
+            will-change: opacity, transform;
+        }
+
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         @media (max-width: 768px) {
-            .values-grid, .beyond-list {
-                grid-template-columns: 1fr;
-            }
-            .value-card-wide {
-                grid-column: auto; /* Resets to single column on mobile */
-            }
+            .about-stats { grid-template-columns: 1fr; }
+            .pull-quote { padding: 24px; margin: 48px 0; }
+            .story-container { padding: 60px 24px 80px; }
+            .beyond-list { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -181,6 +214,7 @@
                 <a href="services.html">Services</a>
                 <a href="writing.html">Writing</a>
                 <a href="resources.html">Resources</a>
+                <!-- Mobile-only CTA -->
                 <a href="book.html" class="btn btn-maroon mobile-only-btn">Book Session</a>
             </nav>
             <a href="book.html" class="btn btn-maroon desktop-only-btn">Book Session</a>
@@ -188,92 +222,78 @@
     </header>
 
     <main>
-        <!-- About Hero Section -->
-        <section style="padding-top: 60px;">
-            <div class="container">
-                <div class="about-hero-grid">
-                    <!-- Left: Sticky Image -->
-                    <div class="hero-image-container">
-                        <img src="headshot-placeholder.jpg" alt="Albin Mutholam, board-certified orthopedic physical therapist" class="headshot-img">
+        <div class="story-container">
+            
+            <div class="fade-in-section">
+                <p class="eyebrow">About Albin</p>
+                <h1 class="story-headline">
+                    I know what it feels like<br />
+                    to be <em>failed</em> by your PT.
+                </h1>
+                <div class="story-divider"></div>
+            </div>
+
+            <div class="fade-in-section">
+                <p class="story-text">
+                    I tore my ACL as a competitive dancer and weightlifter. The first few months of rehab went well — I was progressing, I trusted the process. Then I moved back home and started over with a new physical therapist. She didn't have a clear picture of what to do or how to progress me.
+                </p>
+            </div>
+
+            <div class="fade-in-section">
+                <p class="story-text">
+                    She told me I could jump. I didn't believe her — not because I was afraid, but because <strong>she had never actually tested me.</strong> No force plate. No objective testing at all. No conversation about returning to dance or spots or lifting. Just a generic protocol and a discharge date. I left not knowing what I could trust my body to do.
+                </p>
+            </div>
+
+            <div class="fade-in-section">
+                <div class="pull-quote">
+                    <p>"Nobody told me whether I'd ever squat or lift heavy again. Or dance at a wedding. Or whether the ache I felt was normal, or a sign I was falling apart."</p>
+                </div>
+            </div>
+
+            <div class="fade-in-section">
+                <p class="story-text">
+                    I pieced it together myself over years. I squatted 315lbs. Did Crossfit. Weightlifted. I run. I dance. I play. <strong>But my knee still reminds me what happened</strong> - stiffness on long flights, crepitus on cold mornings, a position I still can't sit in comfortably. That's not failure. That's the honest reality of a complex injury managed without the right guidance at the right time.
+                </p>
+            </div>
+
+            <div class="fade-in-section">
+                <p class="story-text">
+                    That experience is why I became the clinician I am. I specialize in exactly the cases that fall through the cracks — complex knee and hip reconstructions, athletes stuck in the plateau nobody warned them about, people who were cleared on paper but never cleared in their own head.
+                </p>
+            </div>
+
+            <div class="fade-in-section">
+                <div class="about-stats">
+                    <div class="about-stat-cell">
+                        <span class="about-stat-number">100+</span>
+                        <span class="about-stat-label">Athletes returned to sport</span>
                     </div>
-                    
-                    <!-- Right: Bio Text -->
-                    <div class="bio-text">
-                        <h1 style="margin-bottom: 24px; font-size: 48px;">About</h1>
-                        <p>Hello! I'm a residency-trained physical therapist and Board Certified Orthopedic Clinical Specialist based in Chicago. My treatment philosophy centers around a holistic approach that empowers patients to achieve their rehabilitation goals and embrace an active lifestyle beyond recovery.</p>
-                        
-                        <p>I believe rehabilitation should integrate seamlessly into your life, allowing you to maintain normal routines while we work together. My passion for strength and conditioning enriches the care I provide to athletes and active individuals motivated to push their limits.</p>
-
-                        <p>With extensive experience in lower extremity rehabilitation, I help patients regain strength and functionality. I currently serve as Coordinator for the Sports and Orthopedic Physical Therapy residency programs, Director of the Complex Knee Special Interest Program, and clinical researcher collaborating with Drs. Yanke and Chahla. I'm also a dedicated clinical instructor and advanced mentor, committed to nurturing the next generation of physical therapists.</p>
-
-                        <p>Outside the clinic, I stay active at the gym, explore Chicago's vibrant food and coffee scene, discover new music, and dive into good books.</p>
-
-                        <p>Whether you're looking to regain your strength or seeking guidance in your career as a physical therapist, I'm here to support you every step of the way.</p>
+                    <div class="about-stat-cell">
+                        <span class="about-stat-number">OCS</span>
+                        <span class="about-stat-label">Board-certified orthopaedic specialist</span>
+                    </div>
+                    <div class="about-stat-cell">
+                        <span class="about-stat-number">MOR</span>
+                        <span class="about-stat-label">Rush University Medical Center</span>
                     </div>
                 </div>
             </div>
-        </section>
 
-        <!-- Values Section -->
-        <section class="values-section" style="padding: 80px 0; border-top: 1px solid var(--border-color); margin-top: 40px;">
-            <div class="container">
-                <div class="section-header-left" style="margin-bottom: 40px;">
-                    <h2 style="font-size: 36px;">My Values</h2>
-                </div>
-                
-                <div class="values-grid">
-                    <div class="card">
-                        <h3>Relentless Drive</h3>
-                        <p class="subtext" style="color: var(--text-secondary);">My relentless drive fuels my commitment to excellence, empowering patients to overcome challenges and achieve their goals. I continuously seek new knowledge and innovative techniques to enhance both patient care and my professional growth.</p>
-                    </div>
-                    <div class="card">
-                        <h3>Growth Mindset</h3>
-                        <p class="subtext" style="color: var(--text-secondary);">I embrace a growth mindset, viewing challenges as opportunities for learning and improvement. I encourage patients and mentees to develop resilience and adaptability, helping them realize their full potential.</p>
-                    </div>
-                    <div class="card">
-                        <h3>Intentionality</h3>
-                        <p class="subtext" style="color: var(--text-secondary);">Intentionality guides my practice, ensuring every interaction is purpose-driven. By aligning care with each patient's unique goals, I create a supportive environment for thriving and skill development.</p>
-                    </div>
-                    <div class="card">
-                        <h3>Nuance</h3>
-                        <p class="subtext" style="color: var(--text-secondary);">Understanding nuance is vital in my approach. I recognize each patient's uniqueness and tailor treatment plans to their specific needs, fostering deeper connections and better outcomes.</p>
-                    </div>
-                    
-                    <!-- 5th Card spanning full width -->
-                    <div class="card value-card-wide">
-                        <h3>Patient Advocacy</h3>
-                        <p class="subtext" style="color: var(--text-secondary);">I am a passionate advocate for my patients, empowering them throughout their rehabilitation journey. I strive to ensure their voices are heard and their preferences respected, creating a collaborative and trusting environment.</p>
-                    </div>
-                </div>
+            <div class="fade-in-section">
+                <p class="story-text">
+                    I'm the Complex Knee Program Director and Orthopedic Residency Coordinator at Midwest Orthopaedics at Rush — one of the top academic orthopaedic centers in the country. I use objective measurement systems, evidence-based return-to-sport protocols, and the kind of honest conversations I wish someone had with me.
+                </p>
             </div>
-        </section>
 
-        <!-- Professional Journey Section -->
-        <section class="journey-section" style="padding: 80px 0; border-top: 1px solid var(--border-color);">
-            <div class="container">
-                <h2 style="font-size: 36px;">Professional Journey</h2>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-text">Board Certified Orthopedic Clinical Specialist (OCS)</div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-text">Residency-Trained Physical Therapist</div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-text">Complex Knee Special Interest Program Director</div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-text">Orthopedic Residency Coordinator</div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-text">Clinical Researcher (collaboration with Drs. Yanke & Chahla)</div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-text">5+ Years Clinical Experience</div>
-                    </div>
-                </div>
-
-                <!-- Beyond the Clinic -->
+            <div class="fade-in-section">
+                <p class="story-closing">
+                    <strong>If you're stuck, undertested, or just not sure what your body can actually handle- </strong> that's exactly where I do my best work.
+                </p>
+            </div>
+            
+            <!-- Kept this from your original about.html because it adds great personality! -->
+            <div class="fade-in-section">
                 <div class="beyond-section">
                     <h3 style="font-size: 24px; margin-bottom: 8px;">Beyond the Clinic</h3>
                     <p style="color: var(--text-secondary);">When I'm not working with patients or mentoring clinicians, you'll find me:</p>
@@ -285,8 +305,8 @@
                     </ul>
                 </div>
             </div>
-        </section>
 
+        </div>
     </main>
 
     <!-- Footer -->
@@ -323,6 +343,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             lucide.createIcons();
             initMobileMenu();
+            initScrollAnimations();
         });
 
         // Mobile Menu Logic
@@ -333,12 +354,34 @@
             if (mobileMenuBtn && navLinks) {
                 mobileMenuBtn.addEventListener('click', () => {
                     navLinks.classList.toggle('active');
-                    
                     const iconName = navLinks.classList.contains('active') ? 'x' : 'menu';
                     mobileMenuBtn.innerHTML = `<i data-lucide="${iconName}"></i>`;
                     lucide.createIcons();
                 });
             }
+        }
+
+        // Vanilla JS Intersection Observer for smooth fade-ins (replaces React useInView)
+        function initScrollAnimations() {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        // Unobserve after fading in once so it doesn't repeat
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.fade-in-section').forEach(section => {
+                observer.observe(section);
+            });
         }
     </script>
 </body>
