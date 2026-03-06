@@ -35,11 +35,8 @@
                 <a href="services.html">Services</a>
                 <a href="writing.html">Writing</a>
                 <a href="resources.html">Resources</a>
-                <!-- Mobile-only CTA (shows inside dropdown) -->
                 <a href="book.html" class="btn btn-maroon mobile-only-btn">Book Session</a>
             </nav>
-            
-            <!-- Desktop-only CTA -->
             <a href="book.html" class="btn btn-maroon desktop-only-btn">Book Session</a>
         </div>
     </header>
@@ -87,7 +84,6 @@
                 </div>
                 
                 <div class="grid-3 authority-grid">
-                    <!-- Card 1 (Maroon) -->
                     <div class="card authority-card maroon-hover">
                         <div class="card-icon-wrap maroon-bg">
                             <i data-lucide="layers"></i>
@@ -97,7 +93,6 @@
                         <p>Athletes returned to competition after complex knee and hip procedures including ACL, meniscus, and labral repairs.</p>
                     </div>
                     
-                    <!-- Card 2 (Electric Blue Accent) -->
                     <div class="card authority-card blue-hover">
                         <div class="card-icon-wrap blue-bg">
                             <i data-lucide="activity"></i>
@@ -107,14 +102,13 @@
                         <p>Residency-trained expertise in complex cases with objective measurement systems. Your recovery is systematic.</p>
                     </div>
                     
-                    <!-- Card 3 (Maroon) -->
                     <div class="card authority-card maroon-hover">
                         <div class="card-icon-wrap maroon-bg">
-                            <i data-lucide="book-open"></i>
+                            <i data-lucide="user"></i>
                         </div>
-                        <div class="card-stat">Top 1%</div>
-                        <h3>Research Protocol Access</h3>
-                        <p>Active clinical researcher at a leading academic medical center. Your treatment uses cutting-edge protocols.</p>
+                        <div class="card-stat">1 ACL</div>
+                        <h3>I've Been There</h3>
+                        <p>I've been on your side of the table. I know what it costs when the rehab isn't right.</p>
                     </div>
                 </div>
             </div>
@@ -145,7 +139,8 @@
                 </div>
             </div>
         </section>
-<!-- Patient Success Stories -->
+
+        <!-- Patient Success Stories (NEW!) -->
         <section class="testimonials-section">
             <div class="container">
                 <div class="section-header-center">
@@ -178,6 +173,7 @@
                 </div>
             </div>
         </section>
+
         <!-- Dynamic Insights -->
         <section class="writing-preview">
             <div class="container">
@@ -235,29 +231,24 @@
 
     <!-- Scripts -->
     <script>
-        // Wait for DOM and deferred scripts to load
         document.addEventListener('DOMContentLoaded', () => {
             lucide.createIcons();
             loadHomeSubstackPosts();
             initMobileMenu();
         });
 
-        // Mobile Menu Logic
         function initMobileMenu() {
             const mobileMenuBtn = document.getElementById('mobileMenuBtn');
             const navLinks = document.getElementById('navLinks');
             
             mobileMenuBtn.addEventListener('click', () => {
                 navLinks.classList.toggle('active');
-                
-                // Toggle between Menu (hamburger) and X (close) icon
                 const iconName = navLinks.classList.contains('active') ? 'x' : 'menu';
                 mobileMenuBtn.innerHTML = `<i data-lucide="${iconName}"></i>`;
-                lucide.createIcons(); // Re-render the new icon
+                lucide.createIcons();
             });
         }
 
-        // Secure Substack Feed Logic
         async function loadHomeSubstackPosts() {
             const container = document.getElementById('home-posts-container');
             try {
@@ -271,15 +262,11 @@
                     data.items.slice(0, 3).forEach(post => {
                         const card = document.createElement('div');
                         card.className = 'post-card';
-                        
-                        // We set innerHTML but leave the h3 empty for security
                         card.innerHTML = `
                             <h3></h3>
                             <p class="post-date" style="color: #a3a3a3; font-size: 14px; margin: 8px 0;">${new Date(post.pubDate).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}</p>
                             <a href="${post.link}" target="_blank" rel="noopener noreferrer" class="post-link" style="color: #dc2626; font-weight: 600; text-decoration: none;">Read insight →</a>
                         `;
-                        
-                        // Safely inject text content to prevent Cross-Site Scripting (XSS)
                         card.querySelector('h3').textContent = post.title;
                         grid.appendChild(card);
                     });
